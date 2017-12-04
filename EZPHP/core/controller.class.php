@@ -99,33 +99,12 @@ class controller extends base{
 
 
 
-        //todo 页面上  比如 导航栏 那些变量 怎么传递
-        if(isset($data)){
-            $this->assign=$data;
-        }
-
-        $this->view='./core/view/'.$this->controller.'/'. $this->action.'.php';
 
 
-        if($this->layout){
-
-            if(   file_exists($this->layout)  ){
-                include_once($this->layout);
-
-            }else{
-                throw new \Exception('找不到布局文件');
-            }
+        $render = new render($this,$data);
+        $this->mRender = $render;
 
 
-        }else{
-
-            if(  file_exists(  $this->view  )  ){
-                include_once($this->view);
-            }else{
-                throw new \Exception('找不到视图文件');
-            }
-
-        }
 
 
     }
