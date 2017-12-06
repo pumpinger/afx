@@ -6,10 +6,12 @@
  * Time: 下午1:23
  */
 
-namespace EZPHP\core;
+namespace EZPHP\core\controller;
 
 
-class apiController extends controller{
+use EZPHP\core\controller;
+
+class htmlController extends controller{
 
 
 }

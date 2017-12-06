@@ -73,8 +73,8 @@
 ?>
 </div>
 <div id="login">
-    <h1>羊爸爸后台登录</h1>
-    <form method="post" data-action="<?php echo $this->makeUrl('login','login')?>">
+    <h1>后台登录</h1>
+    <form method="post" data-action="<?php echo $this->mController->makeUrl('login','login')?>">
         <input type="text" required="required" placeholder="用户名" name="account">
         <input type="password" required="required" placeholder="密码" name="password">
         <p class="msg"></p>

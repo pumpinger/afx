@@ -18,7 +18,7 @@ class db extends base
     private static $record = array();
 
     private $sql = array();
-    private $model;
+    protected $model;
     private $pdo;
 
 
@@ -44,12 +44,14 @@ class db extends base
         return $pdo;
     }
 
-    private function getTableName(){
+    protected function getTableName(){
 
         //这里 要 大写 换成  _小写
         $class= $this->model;
 
         $class=substr($class,0,-5);
+
+
 
         return 't_'.$class;
     }

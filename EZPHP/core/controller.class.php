@@ -24,6 +24,7 @@ class controller extends base{
     
     public  $mRequest;
     public  $mRender;
+    public  $mLang;
 
 
     public $start=array();
@@ -57,6 +58,19 @@ class controller extends base{
     }
 
 
+
+
+    public function assign($data)
+    {
+        $this->assign=$data;
+    }
+
+
+
+
+
+
+    //慢慢废弃  走 U 方法
     public function makeUrl($c='index',$a='index',$param=array()){
 
 
@@ -71,13 +85,10 @@ class controller extends base{
     }
 
 
-    public function assign($data)
-    {
-        $this->assign=$data;
-    }
 
 
 
+//todo  这里放到  response
     public function json($data=array())
     {
         if(isset($data)){
@@ -89,6 +100,31 @@ class controller extends base{
             'servers_time'=>time(),
         ),$data));
     }
+
+
+    public function getlang(){
+        return $this->mLang?:'zh';
+    }
+
+    public function setlang($lang){
+        $this->mLang = $lang;
+        setcookie('ezphp_lang',$lang);
+    }
+
+
+
+    public function lang($k){
+        if(file_exists('./core/lang/'.$this->getlang().'.php')){
+            $lang = include_once './core/lang/'.$this->getlang().'.php';
+            return $lang[$k];
+
+
+        }else{
+            throw new \Exception('找不到lang文件');
+
+        }
+    }
+
 
 
     public function render($data=array())
@@ -103,6 +139,7 @@ class controller extends base{
 
         $render = new render($this,$data);
         $this->mRender = $render;
+        $this->mRender->init();
 
 
 

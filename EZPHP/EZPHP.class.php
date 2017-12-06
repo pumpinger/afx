@@ -17,7 +17,8 @@ class EZPHP extends base{
 
     private static $success_end=false;
     private static $need_log=false;
-    
+    private static $app;
+
     //todo  框架集成的  方法    db  log  dev   curl  session       \\ 插件   验证码   upload
 
 
@@ -25,7 +26,6 @@ class EZPHP extends base{
 
     public static function init($userConfig)
     {
-
 //        spl_autoload_register('EZPHP\EZPHP::autoLoad');
         spl_autoload_register(array('EZPHP\EZPHP','autoLoad'));
 
@@ -43,14 +43,27 @@ class EZPHP extends base{
         //obstart
         global $defaultConfig;
         global $config;
+
         $config=array_merge($defaultConfig,$userConfig);
 
         dev::start();
 
-        app::run($config);
+
+
+        self::$app = new app($config);
+        self::$app->run();
+
 
         dev::end();
         EZPHP::$success_end=true;
+    }
+
+
+    /**
+     * @return app
+     */
+    public static function app(){
+        return self::$app;
     }
 
 
@@ -105,8 +118,6 @@ class EZPHP extends base{
 
         //html
         //code
-        //ez
-        //        var_dump(3);exit;
 
 
 
@@ -165,8 +176,11 @@ class EZPHP extends base{
 
     public static function appError($errno, $errstr, $errfile, $errline)
     {
-
 //        $errfile=str_replace(getcwd(),"",$errfile);
+
+
+
+
         switch ($errno) {
             case E_NOTICE:
 

@@ -15,10 +15,10 @@ class adminController extends baseController {
     {
 
 
-        $this->setLayout(APP_VIEW_PATH.'layout/admin.php');
+        $this->setLayout(APP_VIEW_PATH.'layout/home.php');
 
 
-        $this->setTitle('羊爸爸-后台管理');
+        $this->setTitle('后台管理');
     }
 
 
@@ -27,6 +27,7 @@ class adminController extends baseController {
     {
 
         session_start();
+
 
         if( ! $_SESSION){
             R(301,$this->makeUrl('login'));

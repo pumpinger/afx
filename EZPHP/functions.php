@@ -42,6 +42,7 @@ function P($var, $echo=true,$label=null, $strict=true)
 }
 
 
+//读取设置
 function C($k,$v=null){
     global $config;
     if($v === null){
@@ -51,6 +52,46 @@ function C($k,$v=null){
     }
 }
 
+
+
+//language
+function L($k)
+{
+
+
+    $lang = \EZPHP\EZPHP::app()->lang()->getLang();
+
+
+    if(file_exists('./core/lang/'.$lang.'.php')){
+        $langArr = include_once './core/lang/'.$lang.'.php';
+        return $langArr[$k];
+
+
+    }else{
+        throw new \Exception('找不到lang文件');
+
+    }
+
+}
+
+
+//url
+function U($c='index',$a='index',$param=array()){
+
+
+    $paramString='';
+    foreach ($param as $k=>$v) {
+        $paramString.='&'.$k.'='.$v;
+    }
+
+
+    return  HTTP_PATH.'index.php?c='.$c.'&a='.$a.$paramString;
+
+}
+
+
+
+//跳转
 function R($status_code,$url="./")
 {
     switch ($status_code) {

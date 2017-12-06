@@ -6,7 +6,7 @@
     <meta name="Author" content="">
     <meta name="Keywords" content="">
     <meta name="Description" content="">
-    <title><?php echo $this->title?></title>
+<!--    <title>--><?php //echo $this->title?><!--</title>-->
 
 
     <link rel="stylesheet" href="<?php echo PUBLIC_PATH ;?>css/global.css"/>
@@ -16,8 +16,8 @@
 </head>
 
 <body>
-<?php include_once $this->view;?>
 
+<?php include_once $this->mController->view;?>
 
 
 

@@ -10,9 +10,14 @@ namespace EZPHP;
 
 
 use EZPHP\core\controller;
+use EZPHP\language\language;
 use EZPHP\request\Request;
 
 class app extends  base{
+
+
+    private $mLang;
+
 
 
     private static function _config($config){
@@ -27,25 +32,40 @@ class app extends  base{
         }
 
 
+        //读取设置判断 是不是要 language
+
         error_reporting(E_ALL ^ E_NOTICE);
 
 //        date_default_timezone_set(C('time_zone'));
     }
-    
-    
-    
-    public  static function run($config){
+
+    public function __construct($config)
+    {
+
+        self::_config($config);
+
+        $this->mLang = new language();
+    }
+
+
+    public function run(){
 //        Header("HTTP/1.1 303 See Other");
 //        Header("Location: http://baidu.com");
 
-        self::_config($config);
 
         
         self::_router();
 //        echo TEST;
 
+    }
 
 
+    /**
+     * @return language
+     */
+    public function lang()
+    {
+        return $this->mLang;
     }
 
     public static function _router(){
@@ -75,6 +95,7 @@ class app extends  base{
         $param_map=array(
             'c'=>'index',
             'a'=>'index',
+            'g'=>'',
         );
         foreach ($param_array as $v) {
             $temp=explode('=',$v);
@@ -97,17 +118,20 @@ class app extends  base{
 
         $controller=$param_map['c'];
         $action=$param_map['a'];
+        $group=$param_map['g'];
 
-        self::_loadAPP($controller,$action);
+
+
+        self::_loadAPP($group,$controller,$action);
 
     }
 
 
-    public static function _loadAPP($controller,$action){
+    public static function _loadAPP($group,$controller,$action){
 
 
-        if(file_exists('./core/controller/'.$controller.'.php')){
-            include_once('./core/controller/'.$controller.'.php');
+        if(file_exists('./core/controller/'.$group.'/'.$controller.'.php')){
+            include_once('./core/controller/'.$group.'/'.$controller.'.php');
             $controllerClass=$controller.'Controller';
         }else{
             throw new \Exception('找不到file');
@@ -132,8 +156,12 @@ class app extends  base{
 
         if( method_exists($newController,$actionMethod) ){
             $newController->action=$action;
-            $newController->mRequest=new Request($newController);
 
+
+
+            //todo  直接放到 ezphp 对象去
+
+            $newController->mRequest=new Request($newController);
 
 
             try {
@@ -155,6 +183,8 @@ class app extends  base{
             } catch (\Exception $e) {
 
             }
+
+
 
 
 

@@ -9,41 +9,43 @@
 namespace EZPHP\core;
 
 
-class render
+use EZPHP\base;
+
+class render extends base
 {
 
-    public $layout;
-    public $controller;
-    public $action;
+    public $mController;
 
 
     //todo 页面上  比如 导航栏 那些变量 怎么传递
 
 
+
+
     public function __construct(controller $controller,$data)
     {
 
-        $this->controller = $controller->controller;
-        $this->layout = $controller->layout;
-        $this->action = $controller->action;
+        $this->mController = $controller;
 
-var_dump($data);
 
-        $this->init();
+        foreach ($data as $k=>$v) {
+            $this->$k=$v;
+        }
+
+
     }
 
 
-    private function init()
+    public function init()
     {
 
+        $this->mController->view='./core/view/'.$this->mController->controller.'/'. $this->mController->action.'.php';
 
-        $this->view='./core/view/'.$this->controller.'/'. $this->action.'.php';
 
+        if($this->mController->layout){
 
-        if($this->layout){
-
-            if(   file_exists($this->layout)  ){
-                include_once($this->layout);
+            if(   file_exists($this->mController->layout)  ){
+                include_once($this->mController->layout);
 
             }else{
                 throw new \Exception('找不到布局文件');
@@ -52,8 +54,8 @@ var_dump($data);
 
         }else{
 
-            if(  file_exists(  $this->view  )  ){
-                include_once($this->view);
+            if(  file_exists(  $this->mController->view  )  ){
+                include_once($this->mController->view);
             }else{
                 throw new \Exception('找不到视图文件');
             }
@@ -62,6 +64,10 @@ var_dump($data);
 
 
     }
+
+
+
+
 
 
 }
