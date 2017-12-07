@@ -38,9 +38,11 @@ class loginController extends \EZPHP\core\controller{
         $res=userModel::intance()->getUserByaccout($account);
 
 
+
         if($res){
 
-            if(  $res['password']  == $password  ){
+
+            if(  $res['password']  == md5($password)  ){
 
 
                 $_SESSION['account']=$account;

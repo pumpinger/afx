@@ -92,7 +92,7 @@
                 data:post_data,
                 success:function (data){
                     if(data.ok){
-                        location.href='<?php echo  $this->makeUrl('admin','index')?>'
+                        location.href='<?php echo  U('admin','index')?>'
                     }else{
                         $('.msg').html(data.msg);
                     }

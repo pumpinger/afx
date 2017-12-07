@@ -15,7 +15,7 @@ class adminController extends baseController {
     {
 
 
-        $this->setLayout(APP_VIEW_PATH.'layout/home.php');
+        $this->setLayout(APP_VIEW_PATH.'layout/admin.php');
 
 
         $this->setTitle('后台管理');

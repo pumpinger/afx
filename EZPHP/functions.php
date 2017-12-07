@@ -68,7 +68,7 @@ function L($k)
 
 
     }else{
-        throw new \Exception('找不到lang文件');
+        throw new \Exception('找不到语言包文件：'.$lang);
 
     }
 
@@ -76,7 +76,7 @@ function L($k)
 
 
 //url
-function U($c='index',$a='index',$param=array()){
+function U($c='index',$a='index',$param=array(),$g=''){
 
 
     $paramString='';
@@ -85,7 +85,10 @@ function U($c='index',$a='index',$param=array()){
     }
 
 
-    return  HTTP_PATH.'index.php?c='.$c.'&a='.$a.$paramString;
+    $url = HTTP_PATH.'index.php?'.($g?'g='.$g.'&':'').'c='.$c.'&a='.$a.$paramString;
+
+
+    return  $url;
 
 }
 

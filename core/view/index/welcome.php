@@ -21,8 +21,8 @@
         <h1>欢迎使用EZPHP。</h1>
         版本号: <b> <?php echo $this->ver?></b>。
         <br><br>
-        <a href="<?php echo $this->mController->makeUrl('login','logout')?>">退出</a>
-        <a href="<?php echo $this->mController->makeUrl('user','index')?>">用户</a>。
+        <a href="<?php echo U('login','logout')?>">退出</a>
+        <a href="<?php echo U('user','index')?>">用户</a>。
 
     </div>
 

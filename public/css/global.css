@@ -10,4 +10,84 @@ ol, ul { list-style: none; }
 
 
 
-body {font-family: "Microsoft YaHei", 'Open Sans', sans-serif;}
+body {font-family: "\5FAE\8F6F\96C5\9ED1",sans-serif;}
+
+.top_center,.nav_center,.banner_center,.block_a_center,.block_b_center,.foot_center,.bottom_center {width: 1200px;margin: 0 auto;position: relative;}
+
+
+.top {background: #a9562e;height: 5px;}
+.top_bar {width: 250px;background-color: #1a9ec5;height: 5px;}
+
+
+
+.nav_logo {display: inline-block;vertical-align: top;width: 250px;height: 130px;}
+.nav_logo img{width: 250px;vertical-align: top;}
+.nav_lang {position: absolute;top: 10px;right: 10px;color: #2b6396;}
+.nav_lang a {margin: 0 10px;padding-bottom:2px;cursor: pointer;}
+.nav_lang_zh {border-bottom: 1px solid #970100;}
+.nav_lang_en {border-bottom: 1px solid #1a9ec5;}
+.nav_links {position:absolute;right:10px;display: inline-block;vertical-align: top;margin-top: 55px;}
+.nav_link {width: 100px;line-height: 40px;margin-right: 10px;display: inline-block;text-align: center;cursor: pointer;}
+.nav_link:hover {color: #1a9ec5;}
+
+
+.banner {min-width: 1200px;height: 700px;overflow: hidden;position: relative;}
+.banner_pic{position: absolute;left: -360px;white-space: nowrap;}
+.banner_pic .first{left: 0;}
+.banner_pic img{position: absolute;width:1920px;height: 700px;left: 1920px;}
+.banner_left {left: 30px;}
+.banner_right {right: 30px;}
+.banner_left,.banner_right {position: absolute;top: 300px;padding: 10px;border-radius: 4px;background: rgba(255,255,255,.3);cursor: pointer;z-index: 2;}
+
+
+
+.block_a {padding: 30px 0 30px 0;background-color: #f6f6f6;}
+.block_a_left {display: inline-block;vertical-align: top;width: 280px;}
+.block_a_left_title{font-size: 30px;color:#1a9ec5;border-bottom: 3px solid #b4b4b4;}
+.block_a_left_title div {display: inline-block;position:relative;bottom:-3px;border-bottom: 3px solid #1a9ec5;padding-bottom:5px;}
+.block_a_left_nav {line-height: 28px;padding: 15px 0 15px 0;border-bottom: 1px dashed  #b4b4b4;cursor: pointer;}
+.block_a_left_nav.active {color:#1a9ec5;}
+.block_a_left_nav span {font-size: 20px;color: #1a9ec5;margin-right: 8px;}
+
+.block_a_right {display: inline-block;vertical-align: top;width: 870px;margin-left: 40px;background-color: #ffffff;padding: 10px 15px 30px 15px;box-sizing: border-box;}
+.block_a_right_content {display: none;}
+.block_a_right_content.active {display: block;}
+.block_a_right_item {width: 350px;padding: 20px 30px 0 30px;display: inline-block;vertical-align: top;}
+.block_a_right_item_title {font-size: 20px;margin-bottom: 10px;}
+.block_a_right_item_title span {font-size: 32px;color:#1a9ec5; }
+.block_a_right_item_p  {border-bottom: 1px dashed #b4b4b4;height: 55px;}
+.block_a_right_more {text-align: right;padding-right: 30px;padding-top: 20px;font-size: 14px;}
+
+
+.block_b {padding: 30px 0 30px 0;background-color: #eeeeee;}
+.block_b_title {font-size: 32px;text-align: center;margin-bottom: 30px;color:#1a9ec5; }
+.block_b_content {overflow: auto;margin-bottom: 30px;}
+.block_b_content a {float: left;margin: 0 5px;}
+.block_b_content img {width: 290px;height: 280px;}
+.block_b_more {margin-left:50%;position: relative;left: -100px;width: 200px;line-height: 50px;text-align: center;border: 1px solid #b4b4b4;cursor: pointer;}
+
+
+.foot {padding:30px 0 30px 0;background-color: #f6f6f6;overflow: auto;}
+
+.foot_left {display: inline-block;vertical-align: top;width: 300px;padding-right: 20px;color: #666666;font-size: 14px;}
+.foot_middle {display: inline-block;vertical-align: top;width: 300px;border-left: 1px solid #b4b4b4;padding-left: 30px;color: #666666;font-size: 14px;}
+.foot_right {display: inline-block;vertical-align: top;float: right;}
+
+
+.foot_middle_title,.foot_left_title {font-size: 20px;margin-bottom: 15px;}
+.foot_right_title {font-size: 20px;font-weight: bold;margin-bottom: 15px;}
+
+.foot_links {line-height: 26px;}
+.foot_link {margin-right: 20px;}
+.foot_contact {line-height: 26px;word-break: break-all;}
+
+
+.foot_wx,.foot_sina {display:inline-block;vertical-align: top;text-align: center;font-size: 12px;}
+.foot_sina {margin-left: 10px;}
+.foot_wx img,.foot_sina img {border: 8px solid #ffffff;border-radius: 5px;width: 80px;height: 80px;}
+
+
+
+
+.bottom {padding: 30px 0 30px 0;text-align: center;font-size: 12px;}
+.bottom img {padding: 5px 0 0 0;}
