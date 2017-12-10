@@ -39,7 +39,8 @@ class render extends base
     public function init()
     {
 
-        $this->mController->view='./core/view/'.$this->mController->controller.'/'. $this->mController->action.'.php';
+
+        $this->mController->view='./core/view/'. $this->mController->group .'/'.$this->mController->controller.'/'. $this->mController->action.'.php';
 
 
         if($this->mController->layout){

@@ -30,7 +30,7 @@ class adminController extends baseController {
 
 
         if( ! $_SESSION){
-            R(301,$this->makeUrl('login'));
+            R(301,U('login'));
             return false;
         }
 

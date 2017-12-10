@@ -16,3 +16,10 @@ function nl2p($text) {
 }
 
 
+
+
+function adminU($controller = 'index',$action = 'index',$param = array()){
+
+    return  U($controller,$action,$param,'admin');
+
+}

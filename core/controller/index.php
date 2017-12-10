@@ -49,11 +49,17 @@ class indexController extends baseController  {
 
 
 
-//        var_dump(postModel::intance()->getSql());b
-
+        $businessPic = businessModel::intance()->getFour();
+        $banner = bannerModel::intance()->getAll();
+        list($data1,$data2) = newsModel::intance()->getFour();
 
         $this->render(array(
-            'a'=>123
+            'pic'=>$businessPic,
+            'banner'=>$banner,
+            'news'=>array(
+                'company'=>$data1,
+                'industry'=>$data2
+            ),
         ));
 //        $this::cc();
         

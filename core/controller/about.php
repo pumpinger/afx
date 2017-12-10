@@ -12,24 +12,26 @@ class aboutController extends baseController {
 
 
 
-
     public function indexAction(){
 
 
 
-        $res = aboutModel::intance()->getAll();
-
-        $data = [];
-
-        foreach ($res as $v) {
-            $data[$v['field']] = $v['content'];
-        }
+//        $res = aboutModel::intance()->getAll();
+//
+//        $data = [];
+//
+//        foreach ($res as $v) {
+//            $data[$v['field']] = $v['content'];
+//        }
 
 
 //        var_dump(postModel::intance()->getSql());
+        $res = aboutModel::intance()->getAll();
 
 
-        $this->render($data);
+        $this->render(array(
+            'data'=>$res
+        ));
 //        $this::cc();
 
 

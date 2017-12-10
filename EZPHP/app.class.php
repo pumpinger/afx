@@ -132,11 +132,13 @@ class app extends  base{
 
         if(file_exists('./core/controller/'.$group.'/'.$controller.'.php')){
             include_once('./core/controller/'.$group.'/'.$controller.'.php');
-            $controllerClass=$controller.'Controller';
+//            $controllerClass=$controller.'Controller';
+            $controllerClass=$group.'\\'.$controller.'Controller';
         }else{
             throw new \Exception('找不到file');
 
         }
+
 
 
 
@@ -146,6 +148,7 @@ class app extends  base{
         if( class_exists($controllerClass,false)){
             $newController=new $controllerClass;
             $newController->controller=$controller;
+            $newController->group=$group;
         }else{
             throw new \Exception('找不到controller');
 

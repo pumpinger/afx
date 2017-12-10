@@ -15,7 +15,7 @@ class aboutModel extends model  implements ISaveModel  {
 
     public function checkParam()
     {
-
+        //应该是有 保存方法的时候 都会调用这里
     }
 
 
@@ -36,6 +36,7 @@ class aboutModel extends model  implements ISaveModel  {
 
     public function chgOne($data,$id)
     {
+
 
         $res=$this->db()->setEqual(array('id'=>$id))->chg($data);
 

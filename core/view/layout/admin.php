@@ -7,7 +7,7 @@
  */
 
 /**
- * @var $this \EZPHP\core\controller
+ * @var $this \EZPHP\core\render
  */
 ?>
 
@@ -17,33 +17,12 @@
     <title><?php echo $this->title?></title>
     <link rel="shortcut icon" href="<?php echo WEB_PATH ;?>favicon.ico" />
 
-    <script type="text/javascript" src="<?php echo PUBLIC_PATH ;?>lib/jquery-2.1.4.js"></script>
-
-
-<!--    <link rel="stylesheet" href="--><?php //echo PUBLIC_PATH ;?><!--lib/iconfont/iconfont.css"/>-->
-<!--    <link rel="stylesheet" href="--><?php //echo PUBLIC_PATH ;?><!--css/xstarp.css"/>-->
-<!--    <script type="text/javascript" src="--><?php //echo PUBLIC_PATH ;?><!--js/xstarp.js"></script>-->
-
-
-
-<!--    <link href="--><?php //echo PUBLIC_PATH ;?><!--lib/umeditor/themes/default/css/umeditor.css" type="text/css" rel="stylesheet">-->
-<!--    <script type="text/javascript" src="--><?php //echo PUBLIC_PATH ;?><!--lib/umeditor/third-party/template.min.js"></script>-->
-<!--    <script type="text/javascript" src="--><?php //echo PUBLIC_PATH ;?><!--lib/umeditor/umeditor.config.js"></script>-->
-<!--    <script type="text/javascript" src="--><?php //echo PUBLIC_PATH ;?><!--lib/umeditor/umeditor.js"></script>-->
-<!--    <script type="text/javascript" src="--><?php //echo PUBLIC_PATH ;?><!--lib/umeditor/lang/zh-cn/zh-cn.js"></script>-->
-
-
-    <script type="text/javascript" src="<?php echo PUBLIC_PATH ;?>lib/ueditor/ueditor.config.js"></script>
-    <script type="text/javascript" src="<?php echo PUBLIC_PATH ;?>lib/ueditor/ueditor.all.min.js"></script>
-
-
-
-
     <link href="<?php echo PUBLIC_PATH ;?>lib/webuploader/webuploader.css" type="text/css" rel="stylesheet">
-    <script type="text/javascript" src="<?php echo PUBLIC_PATH ;?>lib/webuploader/webuploader.html5only.min.js"></script>
+
+    <link href="<?php echo PUBLIC_PATH ;?>lib/app.css" type="text/css" rel="stylesheet">
 
 
-
+    <script type="text/javascript" src="<?php echo PUBLIC_PATH ;?>lib/jquery-2.1.4.js"></script>
 
 
     <style>
@@ -61,13 +40,14 @@
 
 
         body {font-family: "Microsoft YaHei", 'Open Sans', sans-serif;background: #eee9c9;}
+        body {background: #f5f5f5;}
 
 
-        .main {width: 1000px;margin: 0 auto;}
-        .main {padding: 20px;}
+        .main {margin-left: 200px;margin-top: 60px;}
 
 
-        .top {background-color: #555;color: #fff;height: 50px;border-bottom: 10px solid #777f89;}
+        .top {position: fixed;width: 100%;top:0;}
+        .top {background-color: #2e313b;color: #fff;height: 50px;border-bottom: 10px solid #79889a;}
 
         .top_log {display: inline-block;vertical-align:top;margin-top: 8px;margin-left: 10px;font-size: 30px;}
         .top_nav {display : inline-block;vertical-align:top;margin: 22px 0 0 40px;font-size: 16px;}
@@ -76,12 +56,9 @@
         .top_nav .active {color: #eee9c9;}
 
 
+        .nav {background:#2e313b;position: fixed;top:60px;bottom: 0;left: 0;}
 
-
-
-        .save {background: #bcc774;border: 1px solid #9cb945;padding: 4px 10px;cursor: pointer;color: #ffffff;}
-        .button {background: #5c9dff;border: 1px solid #4a77d4;padding: 4px 10px;cursor: pointer;color: #ffffff;}
-        input  {line-height: 30px;height:32px;border-radius: 5px;border: 1px solid #5f5f5d;}
+        .content {overflow: auto;}
 
 
 
@@ -98,50 +75,158 @@
 
 
     </style>
+
+
+
+    <style>
+
+        .content_box {padding: 10px;}
+        .x-table {background: #ffffff;}
+
+        input {color: inherit;}
+
+    </style>
+
+
 </head>
 <body>
 
 
 <div class="top">
     <div class="top_log x-font-30">
-        <a href="<?php echo $this->makeUrl('index','index')?>"  class="<?php echo $this->action=='index'?'active':'';?>">羊爸爸</a>
+        <a href="<?php echo U('index','index')?>" >AFX</a>
     </div>
     <div class="top_nav x-font-16">
-        <a href="<?php echo $this->makeUrl('manage','module',array('id'=>1))?>"   class="<?php echo ($this->action=='module'&&$_GET['id']==1)?'active':'';?>">羊爸爸社区</a>
-        <a href="<?php echo $this->makeUrl('manage','module',array('id'=>2))?>"   class="<?php echo ($this->action=='module'&&$_GET['id']==2)?'active':'';?>">羊爸爸APP</a>
-        <a href="<?php echo $this->makeUrl('manage','module',array('id'=>3))?>"   class="<?php echo ($this->action=='module'&&$_GET['id']==3)?'active':'';?>">羊爸爸公益</a>
 
-
-        <?php
-            $res=classModel::intance()->getAll(array('id','name'));
-
-            foreach ($res as $v) {
-                echo "<a href=".$this->makeUrl('manage','class',array('id'=>$v['id']))." class=".($this->action=='class'&&$v['id']==$_GET['id']?'active':'').">".$v['name']."</a>";
-            }
-
-        ?>
-        <a href="<?php echo $this->makeUrl('manage','about')?>"   class="<?php echo $this->action=='about'?'active':'';?>">关于我们</a>
-        <a href="<?php echo $this->makeUrl('manage','setting')?>"   class="<?php echo $this->action=='setting'?'active':'';?>">设置</a>
+        <a href="<?php echo U('manage','module',array('id'=>1))?>"   class="<?php echo ($this->mController->action=='module')?'active':'';?>">中文</a>
+        <a href="<?php echo U('manage','module',array('id'=>2))?>"   class="<?php echo ($this->mController->action=='module')?'active':'';?>">English</a>
     </div>
+
     <div class="top_fun x-font-14">
         <?php if( $_SESSION):?>
             <a><?php echo $_SESSION['name']?></a>
-            <a href="<?php echo $this->makeUrl('login','logout')?>">退出</a>
+            <a href="<?php echo U('login','logout')?>">退出</a>
         <?php else:?>
             <a>登陆</a>
         <?php endif;?>
 
     </div>
-
 </div>
 
 
 <div class="main">
-<?php include_once $this->view;?>
+
+    <div class="nav">
+        <ul class="x-nav x-nav-sidebar">
+            <li class="x-nav-item">
+                <a class="x-nav-head">内容设置<i class="iconfont icon-xiangxia1"></i></a>
+                <ul class="x-nav-child" style="display:none">
+                    <li><a href="<?php echo adminU('news', 'list') ?>">新闻动态</a></li>
+                    <li><a href="<?php echo adminU('join', 'list') ?>">加入我们</a></li>
+                    <li><a href="<?php echo adminU('about', 'list') ?>">关于我们</a></li>
+                    <li><a href="<?php echo adminU('business', 'list') ?>">业务领域</a></li>
+                    <li><a href="<?php echo adminU('contact', 'list') ?>">联系我们</a></li>
+                </ul>
+            </li>
+            <li class="x-nav-item">
+                <a class="x-nav-head">信息设置<i class="iconfont icon-xiangxia1"></i></a>
+                <ul class="x-nav-child" style="display:none">
+                    <li><a href="<?php echo adminU('link', 'index') ?>">友情链接</a></li>
+                    <li><a href="<?php echo adminU('banner', 'index') ?>">首页大图</a></li>
+                    <li><a href="<?php echo adminU('qr', 'index') ?>">二维码设置</a></li>
+                    <li><a href="<?php echo adminU('info', 'index') ?>">联系方式设置</a></li>
+                </ul>
+            </li>
+            <li class="x-nav-item">
+                <a class="x-nav-head">系统设置<i class="iconfont icon-xiangxia1"></i></a>
+                <ul class="x-nav-child" style="display:none">
+                    <li><a href="<?php echo adminU('user', 'index') ?>">密码设置</a></li>
+                </ul>
+            </li>
+        </ul>
+
+
+    </div>
+
+    <div class="content">
+        <?php include_once $this->mController->view;?>
+
+    </div>
+
 </div>
 
 
 </body>
+
+
+<script>
+
+
+
+//    $('.x-nav a').click(function (){
+//
+//        if($(this).data('href')){
+//            window.location.href = $(this).data('href');
+//
+//        }
+//
+//
+//        $.ajax({
+//            type:'GET',
+//            dataType:'html',
+//            url:$(this).data('href'),
+//            success:function (html){
+//                $('.content').html($(html).find('.content'));
+//            },
+//            error:function (){
+//
+//            }
+//        });
+//
+//
+//    })
+
+
+    $('body').on('click','.ajax-del',function(){
+        $(".ajax-del").attr("disabled","disabled");
+        var url = $(this).data('url');
+        if(    confirm('确认删除？')  ){
+            $.ajax({
+                url: url,
+                dataType: 'json',
+                success: function(res){
+                    $(".ajax-del").removeAttr("disabled");
+                    if(res.ok){//操作成功
+                        var refreshDomStr ='.x-table';
+                        var refreshUrl = location.href;
+                        $.get(refreshUrl,function(data){
+                            $(refreshDomStr).html($(data).find(refreshDomStr).html());
+                        });
+                    }else{
+
+                    }
+                },
+                error: function (data){
+                    $(".x-ajax-del").removeAttr("disabled");
+                }
+            });
+        }
+
+    });
+
+
+</script>
+
+
+
+<script type="text/javascript" src="<?php echo PUBLIC_PATH ;?>lib/app.js"></script>
+
+<script type="text/javascript" src="<?php echo PUBLIC_PATH ;?>lib/ueditor/ueditor.config.js"></script>
+<script type="text/javascript" src="<?php echo PUBLIC_PATH ;?>lib/ueditor/ueditor.all.min.js"></script>
+
+
+<script type="text/javascript" src="<?php echo PUBLIC_PATH ;?>lib/webuploader/webuploader.html5only.min.js"></script>
+
 
 
 </html>

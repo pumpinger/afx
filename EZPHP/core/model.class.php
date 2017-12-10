@@ -52,6 +52,11 @@ class model extends base{
 
 
 
+
+
+
+
+
     public function delAll($where = array())
     {
         $res=$this->db()->setEqual($where)->del();
@@ -63,6 +68,42 @@ class model extends base{
     public function getAll(Array $field=array('*'))
     {
         $res=$this->db()->setField($field)->query();
+
+        return $res;
+    }
+
+
+
+    public function delOne($id)
+    {
+
+
+        $res=$this->db()->setEqual(array('id'=>$id))->del();
+
+        return $res;
+    }
+
+    public function addOne($data)
+    {
+        $res=$this->db()->add($data);
+
+        return $res;
+    }
+
+    public function chgOne($data,$id)
+    {
+
+
+        $res=$this->db()->setEqual(array('id'=>$id))->chg($data);
+
+
+        return $res;
+    }
+
+
+    public function getOne($id)
+    {
+        $res=$this->db()->setEqual(array('id'=>$id))->query(true);
 
         return $res;
     }

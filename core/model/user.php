@@ -14,7 +14,7 @@ class userModel extends \EZPHP\core\model{
     public function getUserByaccout($account)
     {
 
-        $res=$this->db()->query('account = ? ',array($account));
+        $res=$this->db()->setEqual(array('account'=>$account))->query(true);
         return $res;
     }
 

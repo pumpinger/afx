@@ -28,7 +28,7 @@ define( 'PUBLIC_PATH',WEB_PATH . 'public/');
 
 include 'defaultConfig.php';
 include 'functions.php';
-include 'base.class.php';
+
 include 'EZPHP.class.php';
 include  APP_PATH .'core/functions.php';
 

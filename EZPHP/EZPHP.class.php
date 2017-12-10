@@ -13,7 +13,7 @@ namespace EZPHP;
 use Exception;
 use EZPHP\log\log;
 
-class EZPHP extends base{
+class EZPHP {
 
     private static $success_end=false;
     private static $need_log=false;
@@ -69,6 +69,7 @@ class EZPHP extends base{
 
     public  static  function autoLoad($class){
 
+
         $findArr=array(
             APP_MODEL_PATH=>'Model',
             APP_CONTROLLER_PATH=>'Controller',
@@ -78,15 +79,21 @@ class EZPHP extends base{
         foreach ($findArr as $k=>$v) {
             if(   strrchr($class,$v)   ==   $v   ){
                 $filename=$k.'/'. substr($class,0,-strlen($v)).'.php';
+
                 if(  is_file($filename)  ){
                     break;
                 }
             }
         }
 
+
+
+
         if(!is_file( $filename )){
             //util
+
             $filename=APP_UTIL_PATH.'/'.$class.'.php';
+
             if(!is_file($filename)) {
                 //namespace
 
@@ -94,6 +101,10 @@ class EZPHP extends base{
                 //以后不要加 这个class 了
                 $filename1 = $name . '.class.php';
                 $filename2 = $name . '.php';
+
+
+
+
                 if ( !is_file($filename1)  &&  !is_file($filename2)  ) {
                     throw new \Exception('没有找到类'.$class);  //todo  这里扔出  代码写法类型的  异常
                 }else{

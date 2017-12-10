@@ -8,8 +8,15 @@
     </div>
     <div class="banner_center">
         <div class="banner_pic">
-            <img class="first"  src="<?php echo PUBLIC_PATH ;?>img/1.jpg" />
-            <img  src="<?php echo PUBLIC_PATH ;?>img/2.jpeg" />
+
+
+            <?php $isFirst = true; ?>
+            <?php foreach ($this->banner as $v): ?>
+
+                <img  class="<?php echo $isFirst ? 'first' : ''; ?>" src="<?php echo $v['pic'] ?>" />
+                <?php $isFirst = false;?>
+
+            <?php endforeach; ?>
         </div>
     </div>
 </div>
@@ -32,42 +39,27 @@
         <div class="block_a_right">
             <div class="block_a_right_contents">
                 <div class="block_a_right_content active">
-                    <div class="block_a_right_item">
-                        <p class="block_a_right_item_title"><span>23</span>/11/2016</p>
-                        <p class="block_a_right_item_p">大数据尚处于早期发展阶段，如何判断大数据公司的变现能力？</p>
-                    </div>
-                    <div class="block_a_right_item">
-                        <p class="block_a_right_item_title"><span>03</span>/11/2016</p>
-                        <p class="block_a_right_item_p">硅谷一周融资速报：15 家公司获总计超 11.3 亿美元融资</p>
-                    </div>
-                    <div class="block_a_right_item">
-                        <p class="block_a_right_item_title"><span>23</span>/11/2016</p>
-                        <p class="block_a_right_item_p">大数据尚处于早期发展阶段，如何判断大数据公司的变现能力？</p>
-                    </div>
-                    <div class="block_a_right_item">
-                        <p class="block_a_right_item_title"><span>11</span>/11/2016</p>
-                        <p class="block_a_right_item_p">硅谷一周融资速报：15 家公司获总计超 11.3 亿美元融资</p>
-                    </div>
-                    <div class="block_a_right_more">查看更多>></div>
+
+                    <?php foreach ($this->news['company'] as $v): ?>
+                        <a class="block_a_right_item" href="<?php echo U('news','detail',array('id'=>$v['id'])) ?>">
+                            <p class="block_a_right_item_title"><span><?php echo mb_substr($v['time'],0,2) ?></span><?php echo mb_substr($v['time'], 2) ?></p>
+                            <p class="block_a_right_item_p"><?php echo $v['title'] ?></p>
+                        </a>
+                    <?php endforeach; ?>
+                    <a class="block_a_right_more" href="<?php echo U('news','index',array(
+                        'type'=>1
+                    )); ?>">查看更多>></a>
                 </div>
                 <div class="block_a_right_content">
-                    <div class="block_a_right_item">
-                        <p class="block_a_right_item_title"><span>21</span>/11/2016</p>
-                        <p class="block_a_right_item_p">大数据尚处于早期发展阶段，如何判断大数据公司的变现能力？</p>
-                    </div>
-                    <div class="block_a_right_item">
-                        <p class="block_a_right_item_title"><span>01</span>/11/2016</p>
-                        <p class="block_a_right_item_p">硅谷一周融资速报：15 家公司获总计超 11.3 亿美元融资</p>
-                    </div>
-                    <div class="block_a_right_item">
-                        <p class="block_a_right_item_title"><span>21</span>/11/2016</p>
-                        <p class="block_a_right_item_p">大数据尚处于早期发展阶段，如何判断大数据公司的变现能力？</p>
-                    </div>
-                    <div class="block_a_right_item">
-                        <p class="block_a_right_item_title"><span>14</span>/11/2016</p>
-                        <p class="block_a_right_item_p">硅谷一周融资速报：15 家公司获总计超 11.3 亿美元融资</p>
-                    </div>
-                    <div class="block_a_right_more">查看更多>></div>
+                    <?php foreach ($this->news['industry'] as $v): ?>
+                        <a class="block_a_right_item" href="<?php echo U('news','detail',array('id'=>$v['id'])) ?>">
+                            <p class="block_a_right_item_title"><span><?php echo mb_substr($v['time'],0,2) ?></span><?php echo mb_substr($v['time'], 2) ?></p>
+                            <p class="block_a_right_item_p"><?php echo $v['title'] ?></p>
+                        </a>
+                    <?php endforeach; ?>
+                    <a class="block_a_right_more" href="<?php echo U('news','index',array(
+                        'type'=>2
+                    )); ?>">查看更多>></a>
                 </div>
             </div>
         </div>
@@ -78,13 +70,12 @@
     <div class="block_b_center">
         <div class="block_b_title">业务领域</div>
         <div class="block_b_content">
-            <a><img src="<?php echo PUBLIC_PATH ;?>img/b1.png" /></a>
-            <a><img src="<?php echo PUBLIC_PATH ;?>img/b2.png" /></a>
-            <a><img src="<?php echo PUBLIC_PATH ;?>img/b1.png" /></a>
-            <a><img src="<?php echo PUBLIC_PATH ;?>img/b2.png" /></a>
+            <?php foreach ($this->pic as $v): ?>
+                <a href="<?php echo U('business') ?>#business_<?php echo $v['id']?>"><img src="<?php echo $v['pic'] ;?>" /></a>
+            <?php endforeach; ?>
         </div>
     </div>
-    <div class="block_b_more">更多案例>></div>
+    <a class="block_b_more" href="<?php echo U('business') ?>">更多案例>></a>
 </div>
 
 

@@ -11,10 +11,12 @@ namespace EZPHP\core;
 
 use EZPHP\base;
 
-class controller extends base{
+abstract class controller extends base{
 
     public     $controller='';
     public     $action='';
+    public     $group='';
+
     public     $assign='';
 
     public     $layout='';
