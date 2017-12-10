@@ -22,6 +22,9 @@ class language extends component
 
 
     private $lang;
+    private $Alllang=array('en','zh');
+
+    private $langArr;
 
 
     public function __construct()
@@ -40,8 +43,16 @@ class language extends component
 
     public function setLang($lang){
 
-        setcookie('ezphp_lang',$lang);
-        $this->lang = $lang;
+
+        if( in_array($lang, $this->Alllang)){
+            setcookie('ezphp_lang',$lang);
+
+
+            $this->lang = $lang;
+        }
+
+
+
     }
 
 
@@ -63,6 +74,31 @@ class language extends component
         return $this->lang;
     }
 
+
+    public function getLangArr()
+    {
+
+
+
+//
+//    if(file_exists('./core/lang/'.$lang.'.php')){
+//        $langArr = include_once './core/lang/'.$lang.'.php';
+//        return $langArr[$k]?:$k;
+//
+//
+//    }else{
+//        throw new \Exception('找不到语言包文件：'.$lang);
+//
+//    }
+
+
+        if(!$this->langArr){
+            $this->langArr  = include_once './core/lang/'. $this->lang.'.php';
+        }
+
+        return $this->langArr;
+
+    }
 
 
 }

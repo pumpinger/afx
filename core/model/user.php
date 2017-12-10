@@ -1,4 +1,6 @@
 <?php
+use EZPHP\core\db;
+
 /**
  * Created by PhpStorm.
  * User: @van
@@ -9,6 +11,14 @@
 
 class userModel extends \EZPHP\core\model{
 
+    public function __construct()
+    {
+
+        parent::__construct();
+        $this->mDb = new db(get_called_class(),false);
+
+
+    }
 
 
     public function getUserByaccout($account)

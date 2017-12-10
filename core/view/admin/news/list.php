@@ -30,7 +30,7 @@
                 <td><?php echo $i ?></td>
                 <td><?php echo $v['title'] ?></td>
                 <td><?php echo $v['time'] ?></td>
-                <td><?php echo newsModel::intance()->type[$v['type']] ?></td>
+                <td><?php echo newsModel::$type[$v['type']] ?></td>
                 <td><?php echo date('Y-m-d H:i:s',$v['update_time']) ?></td>
                 <td>
                     <a class="x-button x-button-serious" href="<?php echo adminU('news', 'edit',array(

@@ -59,18 +59,12 @@ function L($k)
 {
 
 
-    $lang = \EZPHP\EZPHP::app()->lang()->getLang();
+    $langArr = \EZPHP\EZPHP::app()->lang()->getLangArr();
+
+    return $langArr[$k]?:$k;
 
 
-    if(file_exists('./core/lang/'.$lang.'.php')){
-        $langArr = include_once './core/lang/'.$lang.'.php';
-        return $langArr[$k];
 
-
-    }else{
-        throw new \Exception('找不到语言包文件：'.$lang);
-
-    }
 
 }
 

@@ -22,7 +22,7 @@
 
 <div class="block_d">
     <div class="block_d_left">
-        <div class="block_d_name">校园招聘</div>
+        <div class="block_d_name"><?php echo L('campus_recruitment') ?></div>
         <div class="block_d_lists">
             <?php foreach ($this->school as $v): ?>
                 <div class="block_d_list">
@@ -33,7 +33,7 @@
         </div>
     </div>
     <div class="block_d_right">
-        <div class="block_d_name">社会招聘</div>
+        <div class="block_d_name"><?php echo L('social_recruitment') ?></div>
         <div class="block_d_lists">
             <?php foreach ($this->society as $v): ?>
                 <div class="block_d_list">

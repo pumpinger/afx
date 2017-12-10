@@ -1,4 +1,5 @@
 <?php
+use EZPHP\core\db;
 use EZPHP\core\model;
 use EZPHP\model\ISaveModel;
 
@@ -17,10 +18,12 @@ class newsModel extends model   {
     const TYPE_COMPANY = 1;
     const TYPE_INDUSTRY = 2;
 
-    public $type = array(
+    public static $type = array(
         self::TYPE_COMPANY=>'公司动态',
         self::TYPE_INDUSTRY=>'行业新闻',
     );
+
+
 
 
 

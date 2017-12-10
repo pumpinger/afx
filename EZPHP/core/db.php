@@ -11,6 +11,7 @@ namespace EZPHP\core;
 
 use Exception;
 use EZPHP\base;
+use EZPHP\EZPHP;
 use PDOException;
 
 class db extends base
@@ -20,9 +21,10 @@ class db extends base
     private $sql = array();
     protected $model;
     private $pdo;
+    private $suffix='';
 
 
-    public function __construct($model)
+    public function __construct($model,$lang = true)
     {
 
         $this->model=$model;
@@ -41,6 +43,12 @@ class db extends base
         //                    PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8",
         $pdo->exec('set names utf8mb4');
         $this->pdo=$pdo;
+
+
+        if($lang){
+            $this->suffix=EZPHP::app()->lang()->getDb();
+        }
+
         return $pdo;
     }
 
@@ -52,8 +60,7 @@ class db extends base
         $class=substr($class,0,-5);
 
 
-
-        return 't_'.$class;
+        return 't_'.$class. $this->suffix;
     }
 
     public function getLastSql()

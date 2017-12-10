@@ -19,7 +19,7 @@ class model extends base{
     /**
      * @var \PDO
      */
-    private $mDb;
+    protected $mDb;
 
     public $mController;
 

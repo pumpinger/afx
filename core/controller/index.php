@@ -21,7 +21,7 @@ class indexController extends baseController  {
     public function onRender()
     {
         parent::onRender();
-        $this->setTitle('首页');
+        $this->setTitle('AFX-HOME');
     }
 
 
@@ -73,13 +73,11 @@ class indexController extends baseController  {
 
 
 
-    public function index2Action(){
-        $this->json(array(
-            'aa'=>123,
-            'bb'=>array(
-                'cc'=>11
-            )
-        ));
+    public function langAction(){
+
+        \EZPHP\EZPHP::app()->lang()->setLang($_REQUEST['lang']);
+
+        $this->json();
     }
 
 

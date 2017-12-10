@@ -25,14 +25,14 @@
     <div class="block_a_center">
         <div class="block_a_left">
             <div class="block_a_left_title">
-                <div>新闻中心</div>
+                <div><?php echo L('news_center') ?></div>
             </div>
             <div class="block_a_left_navs">
                 <div class="block_a_left_nav active">
-                    <span>></span>公司动态
+                    <span>></span><?php echo L('company_dynamic') ?>
                 </div>
                 <div class="block_a_left_nav">
-                    <span>></span>行业新闻
+                    <span>></span><?php echo L('trade_news') ?>
                 </div>
             </div>
         </div>
@@ -48,7 +48,7 @@
                     <?php endforeach; ?>
                     <a class="block_a_right_more" href="<?php echo U('news','index',array(
                         'type'=>1
-                    )); ?>">查看更多>></a>
+                    )); ?>"><?php echo L('more') ?>>></a>
                 </div>
                 <div class="block_a_right_content">
                     <?php foreach ($this->news['industry'] as $v): ?>
@@ -59,7 +59,7 @@
                     <?php endforeach; ?>
                     <a class="block_a_right_more" href="<?php echo U('news','index',array(
                         'type'=>2
-                    )); ?>">查看更多>></a>
+                    )); ?>"><?php echo L('more') ?>>></a>
                 </div>
             </div>
         </div>
@@ -68,14 +68,14 @@
 
 <div class="block_b">
     <div class="block_b_center">
-        <div class="block_b_title">业务领域</div>
+        <div class="block_b_title"><?php echo L('<?php echo L(\'about_us\') ?>') ?></div>
         <div class="block_b_content">
             <?php foreach ($this->pic as $v): ?>
                 <a href="<?php echo U('business') ?>#business_<?php echo $v['id']?>"><img src="<?php echo $v['pic'] ;?>" /></a>
             <?php endforeach; ?>
         </div>
     </div>
-    <a class="block_b_more" href="<?php echo U('business') ?>">更多案例>></a>
+    <a class="block_b_more" href="<?php echo U('business') ?>"><?php echo L('more_examples') ?>>></a>
 </div>
 
 

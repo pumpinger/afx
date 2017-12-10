@@ -17,7 +17,7 @@
 
 <div class="block_d">
     <div class="block_d_left">
-        <div class="block_d_name">公司动态</div>
+        <div class="block_d_name"><?php echo L('company_dynamic') ?></div>
         <div class="block_d_lists">
             <?php foreach ($this->company as $v): ?>
                 <a class="block_d_list" href="<?php echo U('news','detail',array('id'=>$v['id'])) ?>">
@@ -28,7 +28,7 @@
         </div>
     </div>
     <div class="block_d_right">
-        <div class="block_d_name">行业新闻</div>
+        <div class="block_d_name"><?php echo L('trade_news') ?></div>
         <div class="block_d_lists">
             <?php foreach ($this->industry as $v): ?>
                 <a class="block_d_list" href="<?php echo U('news','detail',array('id'=>$v['id'])) ?>">

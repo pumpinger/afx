@@ -53,7 +53,7 @@
         .top_nav {display : inline-block;vertical-align:top;margin: 22px 0 0 40px;font-size: 16px;}
         .top_fun {display: inline-block;vertical-align:top;float: right;margin-right: 20px;margin-top: 20px;font-size: 14px;}
         .top_nav a {float: left;margin-right: 20px;cursor: pointer;}
-        .top_nav .active {color: #eee9c9;}
+        .top_nav .active {color: #f7f2ab;}
 
 
         .nav {background:#2e313b;position: fixed;top:60px;bottom: 0;left: 0;}
@@ -98,8 +98,8 @@
     </div>
     <div class="top_nav x-font-16">
 
-        <a href="<?php echo U('manage','module',array('id'=>1))?>"   class="<?php echo ($this->mController->action=='module')?'active':'';?>">中文</a>
-        <a href="<?php echo U('manage','module',array('id'=>2))?>"   class="<?php echo ($this->mController->action=='module')?'active':'';?>">English</a>
+        <a   class="nav_lang_zh <?php echo (\EZPHP\EZPHP::app()->lang()->getLang()=='zh')?'active':'';?>">中文</a>
+        <a   class="nav_lang_en <?php echo (\EZPHP\EZPHP::app()->lang()->getLang()=='en')?'active':'';?>">English</a>
     </div>
 
     <div class="top_fun x-font-14">
@@ -216,7 +216,35 @@
 
 
 </script>
+<script>
 
+    $('.nav_lang_zh').click(function (){
+        $.ajax({
+            type:'GET',
+            dataType:'json',
+            url:'<?php echo U('index','lang',array('lang'=>'zh'))?>',
+            success:function (){
+                window.location.reload();
+            },
+            error:function (){
+
+            }
+        });
+    });
+    $('.nav_lang_en').click(function (){
+        $.ajax({
+            type:'GET',
+            dataType:'json',
+            url:'<?php echo U('index','lang',array('lang'=>'en'))?>',
+            success:function (){
+                window.location.reload();
+            },
+            error:function (){
+
+            }
+        });
+    });
+</script>
 
 
 <script type="text/javascript" src="<?php echo PUBLIC_PATH ;?>lib/app.js"></script>

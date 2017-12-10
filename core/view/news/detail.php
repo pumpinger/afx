@@ -20,7 +20,7 @@
     <div class="block_c">
 
             <h2 class="block_c_title"><?php echo $this->data['title'] ?></h2>
-            <p class="block_c_time">新闻时间:<?php echo $this->data['time'] ?></p>
+            <p class="block_c_time"><?php echo L('time') ?>:<?php echo $this->data['time'] ?></p>
             <div class="block_c_content"><?php echo $this->data['content'] ?></div>
 
     </div>
