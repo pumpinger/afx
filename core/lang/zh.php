@@ -14,7 +14,7 @@ return array(
     'business'=>'业务领域',
     'news'=>'新闻动态',
     'join_us'=>'加入我们',
-    'contact_us'=>'加入我们',
+    'contact_us'=>'联系我们',
     'blogroll'=>'友情链接',
     'contact_way'=>'联系方式',
     'follow_us'=>'关注我们',
