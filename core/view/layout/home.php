@@ -52,25 +52,14 @@
 
                 <?php foreach ($this->mController->link as $v): ?>
                     <a class="foot_link" target="_blank" href="<?php echo $v['link'] ?>"><?php echo $v['name'] ?></a>
-
                 <?php endforeach; ?>
-            </div>
-        </div>
-        <div class="foot_middle">
-            <p class="foot_middle_title"><?php echo L('contact_way') ?></p>
-            <div class="foot_contact">
-                <?php echo  $this->mController->info['content']?>
             </div>
         </div>
         <div class="foot_right">
             <p class="foot_right_title"><?php echo L('follow_us') ?></p>
             <div class="foot_wx">
-                <img src="<?php echo $this->mController->qr[0]['pic'] ?>" />
+                <img src="<?php echo $this->mController->qr['pic'] ?>" />
                 <p><?php echo L('wechat') ?></p>
-            </div>
-            <div class="foot_sina">
-                <img src="<?php echo $this->mController->qr[1]['pic'] ?>" />
-                <p><?php echo L('technical_support') ?></p>
             </div>
         </div>
     </div>
@@ -79,7 +68,7 @@
 
 <div class="bottom">
     <div class="bottom_center">
-        <p>© 2017 afx-eth.com All rights reserved. Powered by Van.</p>
+        <p>© 2017 www.afx-eth.com All rights reserved.</p>
         <div class="bottom_pic">
             <img src="<?php echo PUBLIC_PATH ;?>img/bottom.png" />
         </div>

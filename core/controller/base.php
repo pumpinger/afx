@@ -11,7 +11,7 @@ abstract class baseController extends \EZPHP\core\controller{
 
     public $link;
     public $qr;
-    public $info;
+//    public $info;
 
     public function onRender()
     {
@@ -20,8 +20,8 @@ abstract class baseController extends \EZPHP\core\controller{
         $this->setTitle('afx');
 
         $this->link = linkModel::intance()->getAll();
-        $this->qr = picModel::intance()->getAll();
-        $this->info = infoModel::intance()->getAll()[0];
+        $this->qr = picModel::intance()->getAll()[0];
+//        $this->info = infoModel::intance()->getAll()[0];
 
 
 

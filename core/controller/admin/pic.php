@@ -13,7 +13,7 @@ use adminController;
 use EZPHP\exception\ezException;
 use EZPHP\model\ISaveModel;
 
-class qrController extends adminController  {
+class picController extends adminController  {
 
 
 
@@ -22,8 +22,9 @@ class qrController extends adminController  {
 
 
         $res = picModel::intance()->getAll();
-        $res = [$res[0]];
-//
+
+        unset($res[0]);
+
 //        $data = [];
 //
 //        foreach ($res as $v) {
@@ -43,7 +44,7 @@ class qrController extends adminController  {
     {
 
         $res = true;
-        foreach ($_REQUEST['qr'] as  $k => $v) {
+        foreach ($_REQUEST['pic'] as  $k => $v) {
 
 
             if(!$v){

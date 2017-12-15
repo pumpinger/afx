@@ -132,9 +132,9 @@
                 <a class="x-nav-head">信息设置<i class="iconfont icon-xiangxia1"></i></a>
                 <ul class="x-nav-child" style="display:none">
                     <li><a href="<?php echo adminU('link', 'index') ?>">友情链接</a></li>
-                    <li><a href="<?php echo adminU('banner', 'index') ?>">首页大图</a></li>
                     <li><a href="<?php echo adminU('qr', 'index') ?>">二维码设置</a></li>
-                    <li><a href="<?php echo adminU('info', 'index') ?>">联系方式设置</a></li>
+                    <li><a href="<?php echo adminU('banner', 'index') ?>">首页大图</a></li>
+                    <li><a href="<?php echo adminU('pic', 'index') ?>">分页面大图设置</a></li>
                 </ul>
             </li>
             <li class="x-nav-item">
