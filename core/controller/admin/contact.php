@@ -71,5 +71,43 @@ class contactController extends adminController  {
 
 
 
+    public function delAction()
+    {
+        $id = $_GET['id'];
+
+        $res = false;
+        if($id){
+            $res=contactModel::intance()->delOne($id);
+        }
+
+
+
+        if( $res ){
+            $this->json();
+        }else{
+            //todo 这里 这么做 json  的 exception  现在是 html
+            throw new ezException('保存失败');
+
+        }
+    }
+
+
+    public function editAction()
+    {
+        $id = $_GET['id'];
+
+        $res = \contactModel::intance()->getOne($id);
+
+
+        $this->render(array(
+            'data'=>$res
+        ));
+
+
+    }
+
+
+
+
 
 }
