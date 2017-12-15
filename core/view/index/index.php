@@ -18,6 +18,14 @@
 
             <?php endforeach; ?>
         </div>
+
+        <?php $isFirst = true; ?>
+        <div class="banner_pic_point">
+            <?php foreach ($this->banner as $v): ?>
+                <b class="<?php echo $isFirst ? 'active' : ''; ?>" >·</b>
+                <?php $isFirst = false;?>
+            <?php endforeach; ?>
+        </div>
     </div>
 </div>
 
@@ -49,7 +57,17 @@
                     left:pageWidth
                 });
             });
-            curPicIndex++;
+
+
+            if(is_prev){
+                curPicIndex--;
+            }else{
+                curPicIndex++;
+            }
+
+            $('.banner_pic_point .active').removeClass('active');
+            $('.banner_pic_point b:nth-child('+(curPicIndex%picNum+1)+')').addClass('active');
+
             $('.banner_pic img:nth-child('+(curPicIndex%picNum+1)+')').css({
                 left:pageWidth*direction,
                 zIndex:'1'
@@ -63,6 +81,10 @@
             })
         }
     }
+
+    $('.banner_pic img').click(function (){
+        AutoAnimate();
+    });
 
 
 
