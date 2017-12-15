@@ -16,7 +16,7 @@ class aboutController extends baseController {
 
 
 
-//        $res = aboutModel::intance()->getAll();
+        $pic = picModel::intance()->getOne(5)['pic'];
 //
 //        $data = [];
 //
@@ -30,7 +30,8 @@ class aboutController extends baseController {
 
 
         $this->render(array(
-            'data'=>$res
+            'data'=>$res,
+            'pic'=>$pic
         ));
 //        $this::cc();
 

@@ -3,7 +3,7 @@
 
 
 
-        .photograph {background: url('<?php echo PUBLIC_PATH ?>img/p3.png') no-repeat;}
+        .photograph {background: url('<?php echo $this->pic?>') no-repeat;}
 
 </style>
 

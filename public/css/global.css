@@ -103,13 +103,12 @@ body {font-family: "\5FAE\8F6F\96C5\9ED1",sans-serif;}
 
 .foot {padding:30px 0 30px 0;background-color: #f6f6f6;overflow: auto;}
 
-.foot_left {display: inline-block;vertical-align: top;width: 300px;padding-right: 20px;color: #666666;font-size: 14px;}
-.foot_middle {display: inline-block;vertical-align: top;width: 300px;border-left: 1px solid #b4b4b4;padding-left: 30px;color: #666666;font-size: 14px;}
-.foot_right {display: inline-block;vertical-align: top;float: right;}
+.foot_left {display: inline-block;vertical-align: top;width: 950px;padding-right: 20px;color: #666666;font-size: 14px;}
+.foot_right {display: inline-block;vertical-align: top;top:-13px;position: absolute;}
 
 
 .foot_middle_title,.foot_left_title {font-size: 20px;margin-bottom: 15px;}
-.foot_right_title {font-size: 20px;font-weight: bold;margin-bottom: 15px;}
+.foot_right_title {font-size: 20px;font-weight: bold;margin:30px 20px 0 0;display: inline-block;}
 
 .foot_links {line-height: 26px;}
 .foot_link {margin-right: 20px;}

@@ -16,6 +16,7 @@ class businessController extends baseController {
     public function indexAction(){
 
 
+        $pic = picModel::intance()->getOne(6)['pic'];
 
         $res = businessModel::intance()->getAll();
 //
@@ -30,7 +31,9 @@ class businessController extends baseController {
 
 
         $this->render(array(
-            'data'=>$res
+            'data'=>$res,
+            'pic'=>$pic
+
         ));
 //        $this::cc();
 

@@ -6,7 +6,7 @@
     .block_d_list {cursor: text;}
     .block_d_list_title {font-size: 18px;}
 
-    .photograph {background: url('<?php echo PUBLIC_PATH ?>img/p4.png') no-repeat;}
+    .photograph {background: url('<?php echo $this->pic?>') no-repeat;}
 
 
 

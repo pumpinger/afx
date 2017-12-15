@@ -1,9 +1,9 @@
 
 <style>
 
+        .photograph {background: url('<?php echo $this->pic?>') no-repeat;}
 
 
-        .photograph {background: url('<?php echo PUBLIC_PATH ?>img/p1.png') no-repeat;}
 
 </style>
 

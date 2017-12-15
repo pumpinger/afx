@@ -3,7 +3,7 @@
 
 
     .block_c_title {text-align: center;}
-    .photograph {background: url('<?php echo PUBLIC_PATH ?>img/p5.png') no-repeat;}
+    .photograph {background: url('<?php echo $this->pic?>') no-repeat;}
 
 
 

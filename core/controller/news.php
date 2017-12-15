@@ -15,6 +15,7 @@ class newsController extends baseController {
 
     public function indexAction(){
 
+        $pic = picModel::intance()->getOne(7)['pic'];
 
 
         $res = newsModel::intance()->getAll();
@@ -43,7 +44,9 @@ class newsController extends baseController {
 
         $this->render(array(
             'company'=>$res1,
-            'industry'=>$res2
+            'industry'=>$res2,
+            'pic'=>$pic
+
         ));
 //        $this::cc();
 

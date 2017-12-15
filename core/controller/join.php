@@ -17,6 +17,7 @@ class joinController extends baseController {
 
 
         $res = joinModel::intance()->getAll();
+        $pic = picModel::intance()->getOne(8)['pic'];
 
 
         $res1 =array();
@@ -43,7 +44,9 @@ class joinController extends baseController {
 
         $this->render(array(
             'school'=>$res1,
-            'society'=>$res2
+            'society'=>$res2,
+            'pic'=>$pic
+
         ));
 
 

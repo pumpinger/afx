@@ -15,12 +15,15 @@ class contactController extends baseController {
 
     public function indexAction(){
 
+        $pic = picModel::intance()->getOne(9)['pic'];
 
         $res = contactModel::intance()->getAll();
 
 
         $this->render(array(
-            'data'=>$res
+            'data'=>$res,
+            'pic'=>$pic
+
         ));
     }
 

@@ -59,7 +59,6 @@
             <p class="foot_right_title"><?php echo L('follow_us') ?></p>
             <div class="foot_wx">
                 <img src="<?php echo $this->mController->qr['pic'] ?>" />
-                <p><?php echo L('wechat') ?></p>
             </div>
         </div>
     </div>
@@ -69,9 +68,9 @@
 <div class="bottom">
     <div class="bottom_center">
         <p>© 2017 www.afx-eth.com All rights reserved.</p>
-        <div class="bottom_pic">
-            <img src="<?php echo PUBLIC_PATH ;?>img/bottom.png" />
-        </div>
+<!--        <div class="bottom_pic">-->
+<!--            <img src="--><?php //echo PUBLIC_PATH ;?><!--img/bottom.png" />-->
+<!--        </div>-->
     </div>
 
 </div>
