@@ -17,7 +17,7 @@ abstract class baseController extends \EZPHP\core\controller{
     {
 
         $this->setLayout(APP_VIEW_PATH.'layout/home.php');
-        $this->setTitle('afx');
+        $this->setTitle('AFX');
 
         $this->link = linkModel::intance()->getAll();
         $this->qr = picModel::intance()->getAll()[0];

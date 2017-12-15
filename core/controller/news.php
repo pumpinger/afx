@@ -61,10 +61,15 @@ class newsController extends baseController {
     {
         $id = $_GET['id'];
 
+        $pic = picModel::intance()->getOne(7)['pic'];
+
+
+
         $res = newsModel::intance()->getOne($id);
 
         $this->render(array(
-            'data'=>$res
+            'data'=>$res,
+            'pic'=>$pic,
         ));
 
     }

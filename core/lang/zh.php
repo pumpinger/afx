@@ -23,7 +23,7 @@ return array(
 
 
 
-    'news_center'=>'新闻中心',
+    'news_center'=>'新闻动态',
     'company_dynamic'=>'公司动态',
     'trade_news'=>'行业新闻',
     'more'=>'查看更多',

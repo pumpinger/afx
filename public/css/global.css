@@ -50,7 +50,7 @@ body {font-family: "\5FAE\8F6F\96C5\9ED1",sans-serif;}
 
 
 
-.block_a {padding: 30px 0 30px 0;background-color: #f6f6f6;}
+.block_a {padding: 30px 0 30px 0;}
 .block_a_left {display: inline-block;vertical-align: top;width: 280px;}
 .block_a_left_title{font-size: 30px;color:#1a9ec5;border-bottom: 3px solid #b4b4b4;}
 .block_a_left_title div {display: inline-block;position:relative;bottom:-3px;border-bottom: 3px solid #1a9ec5;padding-bottom:5px;}
@@ -98,9 +98,9 @@ body {font-family: "\5FAE\8F6F\96C5\9ED1",sans-serif;}
 
 
 
-.foot {padding:30px 0 30px 0;background-color: #f6f6f6;overflow: auto;}
+.foot {padding:30px 0 30px 0;background-color: #a9562e;overflow: auto;color: #fff;}
 
-.foot_left {display: inline-block;vertical-align: top;width: 950px;padding-right: 20px;color: #666666;font-size: 14px;}
+.foot_left {display: inline-block;vertical-align: top;width: 950px;padding-right: 20px;font-size: 14px;}
 .foot_right {display: inline-block;vertical-align: top;top:-13px;position: absolute;}
 
 

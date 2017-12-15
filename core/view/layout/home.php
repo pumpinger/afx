@@ -22,9 +22,9 @@
 
 <div class="nav">
     <div class="nav_center">
-        <div class="nav_logo">
+        <a href="<?php echo U();?>" class="nav_logo">
             <img src="<?php echo PUBLIC_PATH ;?>img/logo.png" />
-        </div>
+        </a>
         <div class="nav_lang">
             <a class="nav_lang_zh">中文</a>|<a class="nav_lang_en">English</a>
         </div>
@@ -67,7 +67,7 @@
 
 <div class="bottom">
     <div class="bottom_center">
-        <p>© 2017 www.afx-eth.com All rights reserved.</p>
+        <p>© 2017 www.afx-eth.com All rights reserved. <a target="_blank" href="<?php echo U('admin')?>"> admin login click me</a></p>
 <!--        <div class="bottom_pic">-->
 <!--            <img src="--><?php //echo PUBLIC_PATH ;?><!--img/bottom.png" />-->
 <!--        </div>-->

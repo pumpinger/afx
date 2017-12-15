@@ -35,26 +35,20 @@
             <div class="block_a_right_contents">
                 <div class="block_a_right_content active">
 
-                    <?php foreach ($this->news['company'] as $v): ?>
+                    <?php foreach ($this->company as $v): ?>
                         <a class="block_a_right_item" href="<?php echo U('news','detail',array('id'=>$v['id'])) ?>">
                             <p class="block_a_right_item_title"><span><?php echo mb_substr($v['time'],0,2) ?></span><?php echo mb_substr($v['time'], 2) ?></p>
                             <p class="block_a_right_item_p"><?php echo $v['title'] ?></p>
                         </a>
                     <?php endforeach; ?>
-                    <a class="block_a_right_more" href="<?php echo U('news','index',array(
-                        'type'=>1
-                    )); ?>"><?php echo L('more') ?>>></a>
                 </div>
                 <div class="block_a_right_content">
-                    <?php foreach ($this->news['industry'] as $v): ?>
+                    <?php foreach ($this->industry as $v): ?>
                         <a class="block_a_right_item" href="<?php echo U('news','detail',array('id'=>$v['id'])) ?>">
                             <p class="block_a_right_item_title"><span><?php echo mb_substr($v['time'],0,2) ?></span><?php echo mb_substr($v['time'], 2) ?></p>
                             <p class="block_a_right_item_p"><?php echo $v['title'] ?></p>
                         </a>
                     <?php endforeach; ?>
-                    <a class="block_a_right_more" href="<?php echo U('news','index',array(
-                        'type'=>2
-                    )); ?>"><?php echo L('more') ?>>></a>
                 </div>
             </div>
         </div>
