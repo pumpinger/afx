@@ -20,7 +20,8 @@ abstract class baseController extends \EZPHP\core\controller{
         $this->setTitle('AFX');
 
         $this->link = linkModel::intance()->getAll();
-        $this->qr = picModel::intance()->getAll()[0];
+        $this->qr = picModel::intance()->getAll();
+        $this->qr = $this->qr[count($this->qr)-1];
 //        $this->info = infoModel::intance()->getAll()[0];
 
 

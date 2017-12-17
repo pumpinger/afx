@@ -2,11 +2,9 @@
 <style>
 
 
-    .block_c_title {text-align: center;}
-    .photograph {background: url('<?php echo $this->pic?>') no-repeat;}
+    .photograph {background: url('<?php echo $this->pic?>') no-repeat;background-size: cover;}
 
-    .crumbs {font-size: 14px;}
-    .crumbs a{margin-right: 10px;margin-left: 10px;color: #bd936b;}
+    .block_c_title {text-align: center;}
 
 </style>
 

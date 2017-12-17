@@ -56,6 +56,10 @@ body {font-family: "\5FAE\8F6F\96C5\9ED1",sans-serif;}
 .photograph {width: 1200px;margin: 0 auto;position: relative;}
 .photograph {width: 1200px;height: 275px;background-size: cover;border-radius: 8px;}
 
+
+
+.crumbs {font-size: 14px;}
+.crumbs a{margin-right: 10px;margin-left: 10px;color: #bd936b;}
 .crumbs {width: 1200px;padding: 20px 0 20px 0;margin: 0 auto;}
 
 

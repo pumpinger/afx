@@ -22,7 +22,7 @@ class qrController extends adminController  {
 
 
         $res = picModel::intance()->getAll();
-        $res = [$res[0]];
+        $res = [$res[count($res) -1]];
 //
 //        $data = [];
 //

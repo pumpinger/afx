@@ -23,7 +23,7 @@ class picController extends adminController  {
 
         $res = picModel::intance()->getAll();
 
-        unset($res[0]);
+        unset($res[count($res)-1]);
 
 //        $data = [];
 //

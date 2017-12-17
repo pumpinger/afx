@@ -4,7 +4,7 @@
 
 
 
-    .photograph {background: url('<?php echo $this->pic?>') no-repeat;}
+    .photograph {background: url('<?php echo $this->pic?>') no-repeat;background-size: cover;}
 
 
 
