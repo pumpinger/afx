@@ -19,7 +19,12 @@ class businessController extends baseController {
         $pic = picModel::intance()->getOne(6)['pic'];
 
         $res = businessModel::intance()->getAll();
-//
+
+
+        $type = typeModel::intance()->getModule(typeModel::MODULE_BUSINESS);
+
+
+
 //        $data = [];
 //
 //        foreach ($res as $v) {
@@ -31,8 +36,9 @@ class businessController extends baseController {
 
 
         $this->render(array(
-            'data'=>$res,
-            'pic'=>$pic
+            'res'=>$res,
+            'pic'=>$pic,
+            'type'=>$type,
 
         ));
 //        $this::cc();

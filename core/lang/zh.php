@@ -33,4 +33,7 @@ return array(
     'campus_recruitment'=>'校园招聘',
     'social_recruitment'=>'社会招聘',
 
+
+    'source'=>'来源',
+
 );

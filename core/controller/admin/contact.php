@@ -8,12 +8,12 @@
 
 
 namespace admin;
-use businessModel;
+use contactModel;
 use adminController;
 use EZPHP\exception\ezException;
 use EZPHP\model\ISaveModel;
 
-class businessController extends adminController  {
+class contactController extends adminController  {
 
 
 
@@ -21,10 +21,7 @@ class businessController extends adminController  {
 
 
 
-        $res = businessModel::intance()->getAll();
-
-        $type = \typeModel::intance()->getModuleEnum(\typeModel::MODULE_BUSINESS);
-
+        $res = contactModel::intance()->getAll();
 //
 //        $data = [];
 //
@@ -37,10 +34,10 @@ class businessController extends adminController  {
 
 
         $this->render(array(
-            'data'=>$res,
-            'type'=>$type,
+            'data'=>$res
         ));
     }
+
 
     public function saveAction()
     {
@@ -49,18 +46,15 @@ class businessController extends adminController  {
         $data = array(
             'content'=>$_REQUEST['content'],
             'title'=>$_REQUEST['title'],
-            'pic'=>'',
-            'type'=>$_REQUEST['type'],
-
             'update_time'=>time(),
         );
 
 
         if($id){
-            $res=businessModel::intance()->chgOne($data,$id);
+            $res=contactModel::intance()->chgOne($data,$id);
         }else{
 
-            $res =businessModel::intance()->addOne($data);
+            $res =contactModel::intance()->addOne($data);
         }
 
 
@@ -75,13 +69,15 @@ class businessController extends adminController  {
         }
     }
 
+
+
     public function delAction()
     {
         $id = $_REQUEST['id'];
 
         $res = false;
         if($id){
-            $res=businessModel::intance()->delOne($id);
+            $res=contactModel::intance()->delOne($id);
         }
 
 
@@ -100,17 +96,18 @@ class businessController extends adminController  {
     {
         $id = $_REQUEST['id'];
 
-        $res = \businessModel::intance()->getOne($id);
-        $type = \typeModel::intance()->getModule(\typeModel::MODULE_BUSINESS);
+        $res = \contactModel::intance()->getOne($id);
 
 
         $this->render(array(
-            'data'=>$res,
-            'type'=>$type,
+            'data'=>$res
         ));
 
 
     }
+
+
+
 
 
 }

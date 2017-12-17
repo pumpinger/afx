@@ -42,7 +42,7 @@ class infoController extends adminController  {
 
     public function saveAction()
     {
-        $id = $_GET['id'];
+        $id = $_REQUEST['id'];
 
         $data = array(
             'content'=>$_REQUEST['content'],

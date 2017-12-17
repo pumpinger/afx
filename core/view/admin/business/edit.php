@@ -14,6 +14,19 @@
         <span class="x-form-key">板块名: </span>
         <div class="x-form-value"><input type="text" name="title" placeholder="" value="<?php echo $this->data['title'] ?>"></div>
     </div>
+
+
+    <div class="x-form-item">
+        <span class="x-form-key">类型: </span>
+        <div class="x-form-value">
+
+            <?php foreach ($this->type as $type): ?>
+                <label><input name="type" type="radio" value="<?php echo $type['id'] ?>"  <?php echo ($this->data['type'] == $type['id'])?'checked':''; ?>><span><?php echo $type['name'] ?></span></label>
+            <?php endforeach; ?>
+        </div>
+    </div>
+
+
     <div  class="x-form-item">
         <span class="x-form-key">内容:</span>
 
@@ -27,25 +40,12 @@
 
         </div>
     </div>
-    <div  class="x-form-item">
-        <span class="x-form-key">配图:</span>
-
-        <div class="x-form-value">
-            <div class="uploader_share_qr">
-                <!--用来存放item-->
-                <div class="file_picker" id="filePicker">选择图片</div>
-                <div class="file_list">
-                    <div class="file_item">
-                        <img src="<?php echo $this->data['pic'] ?>" alt="" width="100" height="100">
-                    </div>
-                </div>
-                <input class="fileInput" type="hidden" name="pic" value="<?php echo $this->data['pic'] ?>">
-            </div>
 
 
 
-        </div>
-    </div>
+
+
+
     <div class="x-form-item">
         <span class="x-form-key"></span>
         <div class="x-form-value">

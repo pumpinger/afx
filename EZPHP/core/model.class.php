@@ -67,7 +67,9 @@ class model extends base{
 
     public function getAll(Array $field=array('*'))
     {
-        $res=$this->db()->setField($field)->query();
+        $res=$this->db()->setOrder(array(
+            'id'=>'desc'
+        ))->setField($field)->query();
 
         return $res;
     }
@@ -100,6 +102,17 @@ class model extends base{
         return $res;
     }
 
+
+    public function top($id)
+    {
+        $res=$this->db()->setEqual(array('id'=>$id))->chg(array(
+            'sort'=>time()
+        ));
+
+        return $res;
+
+
+    }
 
     public function getOne($id)
     {

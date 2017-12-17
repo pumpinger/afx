@@ -18,8 +18,10 @@
     <div class="x-form-item">
         <span class="x-form-key">类型: </span>
         <div class="x-form-value">
-                <label><input name="type" type="radio" value="1" checked="checked"><span>校园招聘</span></label>
-                <label><input name="type" type="radio" value="2"><span>社会招聘</span></label>
+
+            <?php foreach ($this->type as $type): ?>
+                <label><input name="type" type="radio" value="<?php echo $type['id'] ?>"  <?php echo ($this->data['type'] == $type['id'])?'checked':''; ?>><span><?php echo $type['name'] ?></span></label>
+            <?php endforeach; ?>
         </div>
     </div>
 

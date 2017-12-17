@@ -67,10 +67,7 @@
 
 <div class="bottom">
     <div class="bottom_center">
-        <p>© 2017 www.afx-eth.com All rights reserved. <a target="_blank" href="<?php echo U('admin')?>"> admin login click me</a></p>
-<!--        <div class="bottom_pic">-->
-<!--            <img src="--><?php //echo PUBLIC_PATH ;?><!--img/bottom.png" />-->
-<!--        </div>-->
+        <p>© 2017 www.afx-eth.com All rights reserved. </p>
     </div>
 
 </div>
@@ -106,6 +103,22 @@
         });
     });
 
+</script>
+
+
+<script>
+
+
+    $('.block_a_left_nav').click(function(){
+    $('.block_a_left_nav.active').removeClass('active');
+    $(this).addClass('active');
+
+    var i = $(this).index();
+
+    $('.block_a_right_content.active').removeClass('active');
+    $('.block_a_right_content').eq(i).addClass('active');
+
+    });
 </script>
 
 </body>

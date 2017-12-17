@@ -19,17 +19,8 @@ class joinController extends baseController {
         $res = joinModel::intance()->getAll();
         $pic = picModel::intance()->getOne(8)['pic'];
 
+        $type = typeModel::intance()->getModule(typeModel::MODULE_JOIN);
 
-        $res1 =array();
-        $res2 =array();
-        foreach ($res as $v) {
-            if($v['type'] == joinModel::TYPE_SCHOOL){
-                $res1[]=$v;
-            }  else{
-                $res2[]=$v;
-
-            }
-        }
 
 
 //        $data = [];
@@ -43,9 +34,9 @@ class joinController extends baseController {
 
 
         $this->render(array(
-            'school'=>$res1,
-            'society'=>$res2,
-            'pic'=>$pic
+            'res'=>$res,
+            'pic'=>$pic,
+            'type'=>$type,
 
         ));
 

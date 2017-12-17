@@ -19,10 +19,16 @@
         <div class="x-form-value"><input type="text" name="time" placeholder="例如:23/11/2017" value="<?php echo $this->data['time'] ?>"></div>
     </div>
     <div class="x-form-item">
+        <span class="x-form-key">来源: </span>
+        <div class="x-form-value"><input type="text" name="source" placeholder="" value="<?php echo $this->data['source'] ?>"></div>
+    </div>
+    <div class="x-form-item">
         <span class="x-form-key">类型: </span>
         <div class="x-form-value">
-                <label><input name="type" type="radio" value="1" checked="checked"><span>公司动态</span></label>
-                <label><input name="type" type="radio" value="2"><span>行业新闻</span></label>
+
+            <?php foreach ($this->type as $type): ?>
+                <label><input name="type" type="radio" value="<?php echo $type['id'] ?>" <?php echo ($this->data['type'] == $type['id'])?'checked':''; ?> ><span><?php echo $type['name'] ?></span></label>
+            <?php endforeach; ?>
         </div>
     </div>
 

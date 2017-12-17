@@ -25,8 +25,6 @@ class newsModel extends model   {
 
 
 
-
-
     public function getFour()
     {
 

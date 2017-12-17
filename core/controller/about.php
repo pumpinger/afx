@@ -17,7 +17,9 @@ class aboutController extends baseController {
 
 
         $pic = picModel::intance()->getOne(5)['pic'];
-//
+
+        $type = typeModel::intance()->getModule(typeModel::MODULE_ABOUT);
+
 //        $data = [];
 //
 //        foreach ($res as $v) {
@@ -30,7 +32,8 @@ class aboutController extends baseController {
 
 
         $this->render(array(
-            'data'=>$res,
+            'res'=>$res,
+            'type'=>$type,
             'pic'=>$pic
         ));
 //        $this::cc();

@@ -3,8 +3,6 @@
 
 
 
-    .block_d_list {cursor: text;}
-    .block_d_list_title {font-size: 18px;}
 
     .photograph {background: url('<?php echo $this->pic?>') no-repeat;}
 
@@ -20,29 +18,51 @@
 
 
 
-<div class="block_d">
-    <div class="block_d_left">
-        <div class="block_d_name"><?php echo L('campus_recruitment') ?></div>
-        <div class="block_d_lists">
-            <?php foreach ($this->school as $v): ?>
-                <div class="block_d_list">
-                    <p class="block_d_list_title"><?php echo $v['title'] ?></p>
-                    <div class="block_d_list_content"><?php echo $v['content'] ?></div>
-                </div>
-            <?php endforeach; ?>
-        </div>
-    </div>
-    <div class="block_d_right">
-        <div class="block_d_name"><?php echo L('social_recruitment') ?></div>
-        <div class="block_d_lists">
-            <?php foreach ($this->society as $v): ?>
-                <div class="block_d_list">
-                    <p class="block_d_list_title"><?php echo $v['title'] ?></p>
-                    <div class="block_d_list_content"><?php echo $v['content'] ?></div>
-                </div>
-            <?php endforeach; ?>
-        </div>
-    </div>
 
 
+<div class="block_a">
+    <div class="block_a_center">
+        <div class="block_a_left">
+            <div class="block_a_left_title">
+                <div><?php echo L('join_us') ?></div>
+            </div>
+            <div class="block_a_left_navs">
+                <?php $isFirst = true; ?>
+                <?php foreach ($this->type as $type): ?>
+                    <div class="block_a_left_nav <?php echo $isFirst?'active':''; ?>">
+                        <span>></span><?php echo $type['name'] ?>
+                    </div>
+                    <?php $isFirst = false; ?>
+                <?php endforeach; ?>
+            </div>
+        </div>
+        <div class="block_a_right">
+            <div class="block_a_right_contents">
+
+                <?php $isFirst = true; ?>
+                <?php foreach ($this->type as $type): ?>
+
+
+                    <div class="block_a_right_content <?php echo $isFirst?'active':''; ?>">
+
+                        <?php foreach ($this->res as $v): ?>
+                            <?php if($v['type'] == $type['id']):?>
+                                <div class="block_a_list">
+                                    <p class="block_a_list_title"><?php echo $v['title'] ?></p>
+                                    <div class="block_a_list_content"><?php echo $v['content'] ?></div>
+                                </div>
+                            <?php endif;?>
+                        <?php endforeach; ?>
+
+                    </div>
+
+                    <?php $isFirst = false; ?>
+                <?php endforeach; ?>
+
+
+
+
+            </div>
+        </div>
+    </div>
 </div>

@@ -22,7 +22,9 @@ class joinController extends adminController  {
 
 
         $res = joinModel::intance()->getAll();
-//
+
+        $type = \typeModel::intance()->getModuleEnum(\typeModel::MODULE_JOIN);
+
 //        $data = [];
 //
 //        foreach ($res as $v) {
@@ -34,13 +36,14 @@ class joinController extends adminController  {
 
 
         $this->render(array(
-            'data'=>$res
+            'data'=>$res,
+            'type'=>$type,
         ));
     }
 
     public function saveAction()
     {
-        $id = $_GET['id'];
+        $id = $_REQUEST['id'];
 
         $data = array(
             'content'=>$_REQUEST['content'],
@@ -71,7 +74,7 @@ class joinController extends adminController  {
 
     public function delAction()
     {
-        $id = $_GET['id'];
+        $id = $_REQUEST['id'];
 
         $res = false;
         if($id){
@@ -92,13 +95,16 @@ class joinController extends adminController  {
 
     public function editAction()
     {
-        $id = $_GET['id'];
+        $id = $_REQUEST['id'];
 
         $res = \joinModel::intance()->getOne($id);
+        $type = \typeModel::intance()->getModule(\typeModel::MODULE_JOIN);
+
 
 
         $this->render(array(
-            'data'=>$res
+            'data'=>$res,
+            'type'=>$type,
         ));
 
 

@@ -28,7 +28,7 @@
             <tr>
                 <td><?php echo $i ?></td>
                 <td><?php echo $v['title'] ?></td>
-                <td><?php echo joinModel::intance()->type[$v['type']] ?></td>
+                <td><?php echo $this->type[$v['type']] ?></td>
                 <td><?php echo date('Y-m-d H:i:s',$v['update_time']) ?></td>
                 <td>
                     <a class="x-button x-button-serious" href="<?php echo adminU('join', 'edit',array(

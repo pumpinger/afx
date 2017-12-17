@@ -22,7 +22,9 @@ class aboutController extends adminController  {
 
 
         $res = aboutModel::intance()->getAll();
-//
+
+        $type = \typeModel::intance()->getModuleEnum(\typeModel::MODULE_ABOUT);
+
 //        $data = [];
 //
 //        foreach ($res as $v) {
@@ -34,17 +36,19 @@ class aboutController extends adminController  {
 
 
         $this->render(array(
-            'data'=>$res
+            'data'=>$res,
+            'type'=>$type,
         ));
     }
 
     public function saveAction()
     {
-        $id = $_GET['id'];
+        $id = $_REQUEST['id'];
 
         $data = array(
             'content'=>$_REQUEST['content'],
             'title'=>$_REQUEST['title'],
+            'type'=>$_REQUEST['type'],
             'update_time'=>time(),
         );
 
@@ -70,7 +74,7 @@ class aboutController extends adminController  {
 
     public function delAction()
     {
-        $id = $_GET['id'];
+        $id = $_REQUEST['id'];
 
         $res = false;
         if($id){
@@ -91,13 +95,17 @@ class aboutController extends adminController  {
 
     public function editAction()
     {
-        $id = $_GET['id'];
+        $id = $_REQUEST['id'];
 
         $res = \aboutModel::intance()->getOne($id);
+        $type = \typeModel::intance()->getModule(\typeModel::MODULE_ABOUT);
+
+
 
 
         $this->render(array(
-            'data'=>$res
+            'data'=>$res,
+            'type'=>$type,
         ));
 
 

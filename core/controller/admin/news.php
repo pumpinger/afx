@@ -22,7 +22,10 @@ class newsController extends adminController  {
 
 
         $res = newsModel::intance()->getAll();
-//
+        $type = \typeModel::intance()->getModuleEnum(\typeModel::MODULE_NEWS);
+
+
+
 //        $data = [];
 //
 //        foreach ($res as $v) {
@@ -34,18 +37,20 @@ class newsController extends adminController  {
 
 
         $this->render(array(
-            'data'=>$res
+            'data'=>$res,
+            'type'=>$type,
         ));
     }
 
     public function saveAction()
     {
-        $id = $_GET['id'];
+        $id = $_REQUEST['id'];
 
         $data = array(
             'content'=>$_REQUEST['content'],
             'title'=>$_REQUEST['title'],
             'time'=>$_REQUEST['time'],
+            'source'=>$_REQUEST['source'],
             'type'=>$_REQUEST['type'],
             'update_time'=>time(),
         );
@@ -72,7 +77,7 @@ class newsController extends adminController  {
 
     public function delAction()
     {
-        $id = $_GET['id'];
+        $id = $_REQUEST['id'];
 
         $res = false;
         if($id){
@@ -93,13 +98,15 @@ class newsController extends adminController  {
 
     public function editAction()
     {
-        $id = $_GET['id'];
+        $id = $_REQUEST['id'];
 
         $res = \newsModel::intance()->getOne($id);
+        $type = \typeModel::intance()->getModule(\typeModel::MODULE_NEWS);
 
 
         $this->render(array(
-            'data'=>$res
+            'data'=>$res,
+            'type'=>$type,
         ));
 
 

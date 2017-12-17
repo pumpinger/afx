@@ -19,32 +19,13 @@ class newsController extends baseController {
 
 
         $res = newsModel::intance()->getAll();
+        $type = typeModel::intance()->getModule(typeModel::MODULE_NEWS);
 
-        $res1 =array();
-        $res2 =array();
-        foreach ($res as $v) {
-            if($v['type'] == newsModel::TYPE_COMPANY){
-                $res1[]=$v;
-            }  else{
-                $res2[]=$v;
-
-            }
-        }
-
-
-//        $data = [];
-//
-//        foreach ($res as $v) {
-//            $data[$v['field']] = $v['content'];
-//        }
-
-
-//        var_dump(postModel::intance()->getSql());
 
 
         $this->render(array(
-            'company'=>$res1,
-            'industry'=>$res2,
+            'res'=>$res,
+            'type'=>$type,
             'pic'=>$pic
 
         ));
@@ -59,7 +40,7 @@ class newsController extends baseController {
 
     public function detailAction()
     {
-        $id = $_GET['id'];
+        $id = $_REQUEST['id'];
 
         $pic = picModel::intance()->getOne(7)['pic'];
 

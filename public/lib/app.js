@@ -10585,6 +10585,7 @@ window.xFormSubmit = function (option) {
     $.ajax({
         url: url,
         data:data,
+		type:'POST',
         success: function(data){
             success(data);
         },

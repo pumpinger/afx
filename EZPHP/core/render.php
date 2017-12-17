@@ -40,7 +40,18 @@ class render extends base
     {
 
 
-        $this->mController->view='./core/view/'. $this->mController->group .'/'.$this->mController->controller.'/'. $this->mController->action.'.php';
+        //todo   new  controller 的时候 view 就写进去
+
+        if($this->mController->view){
+            $this->mController->view='./core/view/'. $this->mController->group .'/'.$this->mController->controller.'/'. $this->mController->view.'.php';
+
+        }else{
+            $this->mController->view='./core/view/'. $this->mController->group .'/'.$this->mController->controller.'/'. $this->mController->action.'.php';
+
+
+        }
+
+
 
 
         if($this->mController->layout){

@@ -139,6 +139,7 @@ abstract class controller extends base{
 
 
 
+
         $render = new render($this,$data);
         $this->mRender = $render;
         $this->mRender->init();

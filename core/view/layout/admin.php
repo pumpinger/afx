@@ -138,6 +138,15 @@
                 </ul>
             </li>
             <li class="x-nav-item">
+                <a class="x-nav-head">分类设置<i class="iconfont icon-xiangxia1"></i></a>
+                <ul class="x-nav-child" style="display:none">
+                    <li><a href="<?php echo adminU('type', 'about') ?>">关于我们分类</a></li>
+                    <li><a href="<?php echo adminU('type', 'join') ?>">加入我们分类</a></li>
+                    <li><a href="<?php echo adminU('type', 'news') ?>">新闻动态分类</a></li>
+                    <li><a href="<?php echo adminU('type', 'business') ?>">业务领域分类</a></li>
+                </ul>
+            </li>
+            <li class="x-nav-item">
                 <a class="x-nav-head">系统设置<i class="iconfont icon-xiangxia1"></i></a>
                 <ul class="x-nav-child" style="display:none">
                     <li><a href="<?php echo adminU('user', 'index') ?>">密码设置</a></li>
@@ -207,10 +216,35 @@
                     }
                 },
                 error: function (data){
-                    $(".x-ajax-del").removeAttr("disabled");
+                    $(".ajax-del").removeAttr("disabled");
                 }
             });
         }
+
+    });
+
+    $('body').on('click','.ajax-op',function(){
+        $(".ajax-op").attr("disabled","disabled");
+        var url = $(this).data('url');
+            $.ajax({
+                url: url,
+                dataType: 'json',
+                success: function(res){
+                    $(".ajax-op").removeAttr("disabled");
+                    if(res.ok){//操作成功
+                        var refreshDomStr ='.x-table';
+                        var refreshUrl = location.href;
+                        $.get(refreshUrl,function(data){
+                            $(refreshDomStr).html($(data).find(refreshDomStr).html());
+                        });
+                    }else{
+
+                    }
+                },
+                error: function (data){
+                    $(".ajax-op").removeAttr("disabled");
+                }
+            });
 
     });
 
