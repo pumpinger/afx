@@ -85,7 +85,7 @@ class typeController extends adminController  {
 
         $data = array(
             'name'=>$_REQUEST['name'],
-            'module'=>$_GET['module'],
+            'module'=>$_REQUEST['module'],
         );
 
 
