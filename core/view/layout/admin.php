@@ -19,7 +19,7 @@
 
     <link href="<?php echo PUBLIC_PATH ;?>lib/webuploader/webuploader.css" type="text/css" rel="stylesheet">
 
-    <link href="<?php echo PUBLIC_PATH ;?>lib/app.css" type="text/css" rel="stylesheet">
+    <link href="<?php echo PUBLIC_PATH ;?>lib/xstarp/app.css" type="text/css" rel="stylesheet">
 
 
     <script type="text/javascript" src="<?php echo PUBLIC_PATH ;?>lib/jquery-2.1.4.js"></script>
@@ -77,7 +77,7 @@
     </style>
 
 
-
+£££
     <style>
 
         .content_box {padding: 10px;}
@@ -281,7 +281,10 @@
 </script>
 
 
-<script type="text/javascript" src="<?php echo PUBLIC_PATH ;?>lib/app.js"></script>
+<script type="text/javascript" src="<?php echo PUBLIC_PATH ;?>lib/xstarp/vendor/js/vendor.js"></script>
+<script type="text/javascript" src="<?php echo PUBLIC_PATH ;?>lib/xstarp/app.js"></script>
+<script type="text/javascript" src="<?php echo PUBLIC_PATH ;?>lib/xstarp/vendor/wdatepicker/WdatePicker.js"></script>
+
 
 <script type="text/javascript" src="<?php echo PUBLIC_PATH ;?>lib/ueditor/ueditor.config.js"></script>
 <script type="text/javascript" src="<?php echo PUBLIC_PATH ;?>lib/ueditor/ueditor.all.min.js"></script>
