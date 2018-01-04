@@ -28,7 +28,7 @@
                     <?php echo L('source') ?>:<?php echo $this->data['source'] ?>
                     &nbsp;&nbsp;&nbsp;
                 <?php endif;?>
-                <?php echo L('time') ?>:<?php echo $this->data['time'] ?></p>
+                <?php echo L('time') ?>:<?php echo date('d/m/Y',$this->data['time']) ?></p>
             <div class="block_c_content"><?php echo $this->data['content'] ?></div>
 
 </div>

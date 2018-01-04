@@ -46,10 +46,11 @@ class newsController extends adminController  {
     {
         $id = $_REQUEST['id'];
 
+
         $data = array(
             'content'=>$_REQUEST['content'],
             'title'=>$_REQUEST['title'],
-            'time'=>$_REQUEST['time'],
+            'time'=>strtotime($_REQUEST['time']),
             'source'=>$_REQUEST['source'],
             'type'=>$_REQUEST['type'],
             'update_time'=>time(),

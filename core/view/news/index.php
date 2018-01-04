@@ -45,10 +45,18 @@
 
                         <?php foreach ($this->res as $v): ?>
                             <?php if($v['type'] == $type['id']):?>
+
+
+                                <?php
+                                    $v['time'] = date('d/m/Y',$v['time'])
+                                ?>
+
                                 <a class="block_a_right_item" href="<?php echo U('news','detail',array('id'=>$v['id'])) ?>">
                                     <p class="block_a_right_item_title"><span><?php echo mb_substr($v['time'],0,2) ?></span><?php echo mb_substr($v['time'], 2) ?></p>
                                     <p class="block_a_right_item_p"><?php echo $v['title'] ?></p>
                                 </a>
+
+
                             <?php endif;?>
                         <?php endforeach; ?>
 

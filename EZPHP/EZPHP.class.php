@@ -133,7 +133,7 @@ class EZPHP {
 
 
         self::$need_log=true;
-        $msg_head="Exception:<b> ". ($e->getMessage() ?: 'unkown error')." </b> In : ".$e->getFile()."(".$e->getLine().")"."<br>";
+        $msg_head="ezAutoException:<b> ". ($e->getMessage() ?: 'unkown error')." </b> In : ".$e->getFile()."(".$e->getLine().")"."<br>";
         $msg_body='';
         $msg_array=$e->getTrace();
 

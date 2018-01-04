@@ -25,6 +25,19 @@ class newsModel extends model   {
 
 
 
+
+    public function getAll(Array $field=array('*'))
+    {
+        $res=$this->db()->setOrder(array(
+            'time'=>'desc'
+        ))->setField($field)->query();
+
+        return $res;
+    }
+
+
+
+
     public function getFour()
     {
 
