@@ -162,7 +162,7 @@
         xFormSubmit({
             form:$('.x-form'),
             success:function (data){
-                var json  = $.parseJSON(data);
+                var json  = data;
 
                 if(json.ok){
                     alert('保存成功');

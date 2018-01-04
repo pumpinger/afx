@@ -58,7 +58,7 @@
         xFormSubmit({
             form:$('.x-form'),
             success:function (data){
-                var json  = $.parseJSON(data);
+                var json  = data;
 
                 if(json.ok){
                     window.location.href = '<?php echo adminU('about', 'list')?>';

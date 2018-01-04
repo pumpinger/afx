@@ -16,7 +16,10 @@
     </div>
     <div class="x-form-item">
         <span class="x-form-key">时间: </span>
-        <div class="x-form-value"><input type="text" name="time" placeholder="例如:23/11/2017" value="<?php echo $this->data['time'] ?>"></div>
+        <div class="x-form-value">
+            <input type="text" class="x-time"  x-time-format="dd/MM/yyyy"  x-time-input=".time-value"  placeholder="例如:23/11/2017" value="<?php echo $this->data['time'] ?>">
+            <input type="hidden" class="time-value"  value="<?php echo $this->data['time'] ?>">
+        </div>
     </div>
     <div class="x-form-item">
         <span class="x-form-key">来源: </span>
@@ -84,7 +87,7 @@
         xFormSubmit({
             form:$('.x-form'),
             success:function (data){
-                var json  = $.parseJSON(data);
+                var json  = data;
 
                 if(json.ok){
                     window.location.href = '<?php echo adminU('news', 'list')?>';
