@@ -8,6 +8,8 @@
 
 
 namespace admin;
+use EZPHP\base;
+use EZPHP\core\model;
 use newsModel;
 use adminController;
 use EZPHP\exception\ezException;
@@ -21,9 +23,13 @@ class newsController extends adminController  {
 
 
 
-        $res = newsModel::intance()->getAll();
+        $page  = $_GET['page']?:1;
+
+
         $type = \typeModel::intance()->getModuleEnum(\typeModel::MODULE_NEWS);
 
+
+        $pageObj = new page(newsModel::intance(),array('*'),$page);
 
 
 //        $data = [];
@@ -36,8 +42,11 @@ class newsController extends adminController  {
 //        var_dump(postModel::intance()->getSql());
 
 
+
+
+
         $this->render(array(
-            'data'=>$res,
+            'page'=>$pageObj,
             'type'=>$type,
         ));
     }
@@ -113,5 +122,102 @@ class newsController extends adminController  {
 
     }
 
+
+}
+
+
+
+class newsPage extends page {
+    public function __construct()
+    {
+
+
+    }
+
+
+    public function aaa()
+    {
+
+        $count = newsModel::intance()->getCount();
+
+        return $count;
+    }
+
+
+}
+
+class page  extends base {
+
+
+    public $data;
+    public $count;
+    public $page;
+    public $curPage;
+
+    public function __construct(model $model,Array $field=array('*'),$curPage = '1')
+    {
+//    public function __construct(Model $model,Condition $condition)
+
+
+        $this->curPage = $curPage;
+
+        $size = 10;
+
+        $this->data=$model->db()
+            ->setOrder(array(
+                'time'=>'desc'
+            ))
+            ->setField($field)
+            ->setLimit(($curPage-1)*$size,$size)
+            ->query();
+
+
+        $this->count=$model->db()
+            ->setField(array('count(*) as count'))
+            ->query(true)['count'];
+
+
+        $pageNum= ceil($this->count/$size);
+        $this->page = array();
+
+
+        for ($i = 1; $i <= $pageNum; $i++) {
+            $this->page[]=$i;
+        }
+
+
+
+
+        if( $pageNum > 7 ){
+
+
+            foreach($this->page as $k => $v) {
+
+                if($v != 1 &&  $v != $this->page[$pageNum-1]  &&  ($v > $curPage + 2  ||  $v  < $curPage - 2) ){
+
+                        unset($this->page[$k]);
+
+                }
+
+            }
+
+
+        }
+
+
+
+        foreach ($this->page as $k => $v) {
+            
+            if(  $k > 1 &&   !array_key_exists($k - 1,$this->page) ){
+
+
+                $this->page[$k-1]='...';
+            }
+
+        }
+
+        ksort($this->page);
+
+    }
 
 }

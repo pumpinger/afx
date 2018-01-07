@@ -183,6 +183,17 @@ class db extends base
 
 
 
+
+
+
+
+
+
+
+
+
+
+
     public function setJoin($value)
     {
         $this->sql['join']=$value;
@@ -288,10 +299,28 @@ class db extends base
     }
     public function setLimit($offset,$size)
     {
+
+
+        if( !is_int($offset)  ||  $offset < 0){
+            $offset = 0;
+        }
         $this->sql['limit']=$offset.','.$size;
         return $this;
 
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     public function add($data)
