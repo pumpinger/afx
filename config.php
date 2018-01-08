@@ -12,4 +12,7 @@
 return array(
     'show_error'=>true,
     'show_sql'=>true,
+
+
+    'page_size'=>10,
 );

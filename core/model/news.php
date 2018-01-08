@@ -14,7 +14,6 @@ use EZPHP\model\ISaveModel;
 class newsModel extends model   {
 
 
-
     const TYPE_COMPANY = 1;
     const TYPE_INDUSTRY = 2;
 

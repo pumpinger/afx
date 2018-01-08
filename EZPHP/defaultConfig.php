@@ -13,6 +13,8 @@
 $defaultConfig=array(
     'time_zone'=>'prc',
     'EZPHP_ver'=>'1.0',
+
+    'page_size'=>20,
 );
 
 
