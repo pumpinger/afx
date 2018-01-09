@@ -12,6 +12,7 @@ use aboutModel;
 use adminController;
 use EZPHP\exception\ezException;
 use EZPHP\model\ISaveModel;
+use EZPHP\module\page\page;
 
 class aboutController extends adminController  {
 
@@ -21,7 +22,6 @@ class aboutController extends adminController  {
 
 
 
-        $res = aboutModel::intance()->getAll();
 
         $type = \typeModel::intance()->getModuleEnum(\typeModel::MODULE_ABOUT);
 
@@ -34,9 +34,17 @@ class aboutController extends adminController  {
 
 //        var_dump(postModel::intance()->getSql());
 
+        $page  = $_GET['page']?:1;
+        $condition=aboutModel::intance()->db()->setOrder(array(
+            'id'=>'desc'
+        ));
+
+        $pageObj = new page($condition,$page);
+
+
 
         $this->render(array(
-            'data'=>$res,
+            'page'=>$pageObj,
             'type'=>$type,
         ));
     }

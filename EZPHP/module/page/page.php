@@ -33,9 +33,16 @@ class page  extends base {
             ->query();
 
 
+
+
+
+        //todo  这里 不重新 setlimie  就会让 count  也有 limit，怎么样 condition保留设置的值，而重新set的不会保留（上一步的limit 不想保留）
         $this->count=$condition
+            ->setLimit(null,0)
             ->setField(array('count(*) as count'))
             ->query(true)['count'];
+
+
 
 
         $pageNum= ceil($this->count/$size);

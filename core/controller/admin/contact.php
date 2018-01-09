@@ -12,6 +12,7 @@ use contactModel;
 use adminController;
 use EZPHP\exception\ezException;
 use EZPHP\model\ISaveModel;
+use EZPHP\module\page\page;
 
 class contactController extends adminController  {
 
@@ -21,7 +22,6 @@ class contactController extends adminController  {
 
 
 
-        $res = contactModel::intance()->getAll();
 //
 //        $data = [];
 //
@@ -32,9 +32,15 @@ class contactController extends adminController  {
 
 //        var_dump(postModel::intance()->getSql());
 
+        $page  = $_GET['page']?:1;
+        $condition=contactModel::intance()->db()->setOrder(array(
+            'id'=>'desc'
+        ));
+
+        $pageObj = new page($condition,$page);
 
         $this->render(array(
-            'data'=>$res
+            'page'=>$pageObj
         ));
     }
 

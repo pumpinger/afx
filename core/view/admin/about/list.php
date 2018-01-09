@@ -23,7 +23,7 @@
 
 
         <?php $i = 0; ?>
-        <?php foreach ($this->data as $v): ?>
+        <?php foreach ($this->page->data as $v): ?>
             <?php $i++; ?>
             <tr>
                 <td><?php echo $i ?></td>
@@ -43,6 +43,26 @@
         <?php endforeach; ?>
         </tbody>
     </table>
+
+
+    <div class="x-page">
+        <div class="x-page-total">共有<?php echo $this->page->count;?>条信息</div>
+        <div class="x-page-pages">
+            <ul>
+                <?php foreach ($this->page->page as $v): ?>
+
+                    <li class="<?php echo  ($v==$this->page->curPage)?'x-active':'';?>">
+                        <?php if(is_int($v)):?>
+                            <a href="<?php echo adminU('about','list',array('page'=>$v));?>"><?php echo $v;?></a>
+                        <?php else:?>
+                            <span><?php echo $v; ?></span>
+                        <?php endif;?>
+                    </li>
+                <?php endforeach; ?>
+
+            </ul>
+        </div>
+    </div>
 
 
 

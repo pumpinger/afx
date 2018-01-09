@@ -38,9 +38,15 @@ class model extends base{
         $class = get_called_class();
 
         if( self::$model[$class] ){
+
+            self::$model[$class]->mDb->init();
+
             return self::$model[$class];
         }
+        
         self::$model[$class] = new $class;
+
+
         return self::$model[$class];
     }
 

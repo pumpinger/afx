@@ -1,4 +1,7 @@
 <?php
+
+use EZPHP\module\page\page;
+
 /**
  * Created by PhpStorm.
  * User: wangzhongjiang
@@ -17,15 +20,33 @@ class newsController extends baseController {
 
         $pic = picModel::intance()->getOne(7)['pic'];
 
+        $typeArr = typeModel::intance()->getModule(typeModel::MODULE_NEWS);
 
-        $res = newsModel::intance()->getAll();
-        $type = typeModel::intance()->getModule(typeModel::MODULE_NEWS);
+
+
+        $page  = $_GET['page']?:1;
+        $type  = $_GET['type']?:$typeArr[0]['id'];
+
+
+
+        $condition=newsModel::intance()->db()
+            ->setEqual(array(
+                'type'=>$type
+            ))
+            ->setOrder(array(
+                'time'=>'desc'
+            ));
+
+        $pageObj = new page($condition,$page);
+
+
 
 
 
         $this->render(array(
-            'res'=>$res,
+            'page'=>$pageObj,
             'type'=>$type,
+            'typeArr'=>$typeArr,
             'pic'=>$pic
 
         ));

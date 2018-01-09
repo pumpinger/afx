@@ -12,6 +12,7 @@ use businessModel;
 use adminController;
 use EZPHP\exception\ezException;
 use EZPHP\model\ISaveModel;
+use EZPHP\module\page\page;
 
 class businessController extends adminController  {
 
@@ -20,8 +21,6 @@ class businessController extends adminController  {
     public function listAction(){
 
 
-
-        $res = businessModel::intance()->getAll();
 
         $type = \typeModel::intance()->getModuleEnum(\typeModel::MODULE_BUSINESS);
 
@@ -36,8 +35,15 @@ class businessController extends adminController  {
 //        var_dump(postModel::intance()->getSql());
 
 
+        $page  = $_GET['page']?:1;
+        $condition=businessModel::intance()->db()->setOrder(array(
+            'id'=>'desc'
+        ));
+
+        $pageObj = new page($condition,$page);
+
         $this->render(array(
-            'data'=>$res,
+            'page'=>$pageObj,
             'type'=>$type,
         ));
     }

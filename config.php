@@ -14,5 +14,5 @@ return array(
     'show_sql'=>true,
 
 
-    'page_size'=>10,
+    'page_size'=>15,
 );

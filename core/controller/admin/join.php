@@ -8,6 +8,7 @@
 
 
 namespace admin;
+use EZPHP\module\page\page;
 use joinModel;
 use adminController;
 use EZPHP\exception\ezException;
@@ -21,9 +22,18 @@ class joinController extends adminController  {
 
 
 
-        $res = joinModel::intance()->getAll();
 
         $type = \typeModel::intance()->getModuleEnum(\typeModel::MODULE_JOIN);
+
+
+
+        $page  = $_GET['page']?:1;
+        $condition=joinModel::intance()->db()->setOrder(array(
+            'id'=>'desc'
+        ));
+
+        $pageObj = new page($condition,$page);
+
 
 //        $data = [];
 //
@@ -36,7 +46,7 @@ class joinController extends adminController  {
 
 
         $this->render(array(
-            'data'=>$res,
+            'page'=>$pageObj,
             'type'=>$type,
         ));
     }

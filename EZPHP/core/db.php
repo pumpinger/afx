@@ -168,7 +168,7 @@ class db extends base
 
 
         //todo  还是说 再 instance 的时候就 初始化一下?
-        $this->init();
+//        $this->init();
         return $res;
     }
 
@@ -300,6 +300,11 @@ class db extends base
     public function setLimit($offset,$size)
     {
 
+        if($offset  === null){
+            $this->sql['limit']='';
+            return $this;
+
+        }
 
         if( !is_int($offset)  ||  $offset < 0){
             $offset = 0;
@@ -356,7 +361,6 @@ class db extends base
 
         $PS->execute();
 
-        $this->init();
 
         return $this->pdo->lastInsertId();
 
@@ -389,7 +393,6 @@ class db extends base
 
 
 
-        $this->init();
 
         return $PS->execute();
 
@@ -453,7 +456,6 @@ class db extends base
 
 
 
-        $this->init();
 
         return $PS->execute();
 
@@ -461,7 +463,7 @@ class db extends base
     }
 
 
-    private function init(){
+    public function init(){
         $this->sql=array();
     }
 

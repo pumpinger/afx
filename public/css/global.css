@@ -69,7 +69,7 @@ body {font-family: "\5FAE\8F6F\96C5\9ED1",sans-serif;}
 .block_a_left {display: inline-block;vertical-align: top;width: 280px;}
 .block_a_left_title{font-size: 30px;color:#1a9ec5;border-bottom: 3px solid #b4b4b4;}
 .block_a_left_title div {display: inline-block;position:relative;bottom:-3px;border-bottom: 3px solid #1a9ec5;padding-bottom:5px;}
-.block_a_left_nav {line-height: 28px;padding: 15px 0 15px 0;border-bottom: 1px dashed  #b4b4b4;cursor: pointer;}
+.block_a_left_nav {display:block;line-height: 28px;padding: 15px 0 15px 0;border-bottom: 1px dashed  #b4b4b4;cursor: pointer;}
 .block_a_left_nav.active {color:#1a9ec5;}
 .block_a_left_nav span {font-size: 20px;color: #1a9ec5;margin-right: 8px;}
 

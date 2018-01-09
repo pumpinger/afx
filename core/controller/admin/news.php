@@ -25,11 +25,11 @@ class newsController extends adminController  {
 
 
 
-        $page  = $_GET['page']?:1;
 
 
         $type = \typeModel::intance()->getModuleEnum(\typeModel::MODULE_NEWS);
 
+        $page  = $_GET['page']?:1;
 
 
         $condition=newsModel::intance()->db()
