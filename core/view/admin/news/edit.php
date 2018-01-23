@@ -18,7 +18,7 @@
         <span class="x-form-key">时间: </span>
         <div class="x-form-value">
             <input type="text" class="x-time"  x-time-format="dd/MM/yyyy"  x-time-input=".time-value"  placeholder="例如:23/11/2017" value="<?php echo date('d/m/Y',$this->data['time']?:time()); ?>">
-            <input type="hidden" name='time' class="time-value"  value="<?php echo $this->data['time']?:time() ?>">
+            <input type="hidden" name='time' class="time-value"  value="<?php echo $this->data['time']?:date('Y-m-d',time()); ?>">
         </div>
     </div>
     <div class="x-form-item">
